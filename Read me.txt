@@ -1,1 +1,10 @@
-test
+https://github.com/ncbi - NCBI provides several public APIs that allow programmatic access to many databases and tools.
+https://www.ncbi.nlm.nih.gov/home/develop/libraries/ - NCBI provides several public software libraries that developers can use to manipulate NCBI data.
+https://github.com/ncbi - NCBI repo
+https://github.com/ncbi/icn3d#icn3d-structure-viewer - WebGL-based protein structure viewer
+http://kinemage.biochem.duke.edu/databases/top500.php - Used the list of 500 proteins for 3D viewing 
+
+
+
+
+
