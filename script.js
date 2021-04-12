@@ -2,6 +2,12 @@
 var stage = new NGL.Stage("viewport");
 // load a PDB structure and consume the returned `Promise`
 function load_pdb(){
+    //checks whether or not the view should be reset
+    var view_reset_or_build_upon = document.getElementById("flexSwitchCheckDefault").checked;
+    //console.log(view_reset_or_build_upon);
+    if(view_reset_or_build_upon){
+        stage.removeAllComponents();
+    }
     stage.loadFile("rcsb://pdb_files/6WZR").then(function (component) {
         // add a "cartoon" representation to the structure component
         var e = document.getElementById("style");
