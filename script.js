@@ -1,11 +1,11 @@
-// create a `stage` object
+// create a `stage` object=
 var stage = new NGL.Stage("viewport");
 // load a PDB structure and consume the returned `Promise`
 function load_pdb(){
     //checks whether or not the view should be reset
     var view_reset_or_build_upon = document.getElementById("flexSwitchCheckDefault").checked;
     //console.log(view_reset_or_build_upon);
-    if(view_reset_or_build_upon){
+    if(!view_reset_or_build_upon){
         stage.removeAllComponents();
     }
     stage.loadFile("rcsb://pdb_files/6WZR").then(function (component) {
@@ -20,3 +20,12 @@ function load_pdb(){
 }
 
 
+//tasks:
+// instructions
+// two or more proteins viewed at the same time
+// jpg saving
+
+
+//references:
+//https://www.rcsb.org/
+//http://nglviewer.org/ngl/api/class/src/stage/stage.js~Stage.html
