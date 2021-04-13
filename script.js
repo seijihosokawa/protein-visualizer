@@ -25,6 +25,11 @@ function set_fullscreen(){
     stage.toggleFullscreen();
 }
 
+//Sorts through the folder and checks each one
+var i;
+function sort_through_folder(){
+
+}
 /* Does not work yet, download a PNG file of current view
 function take_screenshot(){
     var response = stage.makeImage();
