@@ -42,14 +42,7 @@
                 </div>
                 <!-- Navigation bar button for input file-->
                 <div class="container-fluid">
-                    <input class="form-control" type="file" id="file-selector"accept=".pdb">
-                    <script>
-                        const fileSelector = document.getElementById('file-selector');
-                        fileSelector.addEventListener('change', (event) => {
-                        const fileList = event.target.files;
-                        console.log(fileList);
-                        });
-                    </script>
+                    <input class="form-control" type="file" id="file-selector"accept=".pdb" onChange="update_current_protein()">
                 </div>
                 <!-- Navigation Bar protein seach bar -->
                 <div class="container-fluid justify-content-end">
