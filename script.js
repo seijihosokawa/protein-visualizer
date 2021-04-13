@@ -10,7 +10,7 @@ function load_pdb(){
         //stage.dispose();
     }
     stage.loadFile("rcsb://pdb_files/6WZR").then(function (component) {
-        // add a "cartoon" representation to the structure component
+        // add a style representation to the structure component
         var e = document.getElementById("style");
         var style_val = e.options[e.selectedIndex].text;
         console.log("style", style_val);
@@ -25,6 +25,21 @@ function set_fullscreen(){
     stage.toggleFullscreen();
 }
 
+/* Does not work yet, download a PNG file of current view
+function take_screenshot(){
+    var response = stage.makeImage();
+    var blob = new Blob([response], {type: "image/png"});
+    console.log(blob);
+    console.log(blob.size, blob.type);
+
+    const a = document.createElement('a');
+    document.body.appendChild(a);
+    a.style.display = 'none';
+    a.href = URL.createObjectURL(blob);
+    a.download = 'image.png';
+    a.click();
+}
+ */
 //tasks:
 // instructions
 // two or more proteins viewed at the same time
