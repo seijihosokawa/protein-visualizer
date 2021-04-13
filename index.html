@@ -3,53 +3,69 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
-                
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-        <title>Protein Visualizer</title>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#">Protein Visualizer</a>
-          </div>
-          <div class="container-fluid">
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-              <label class="form-check-label" for="flexSwitchCheckDefault" style="color:white;"> Combine Styles</label>
-            </div>
-          </div>
-          <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <select name="" id="style" class="form-control" style="width: 150px;" onchange="load_pdb()">
-                    <option value="none" selected disabled hidden>
-                              Select an Style
-                    </option>
-                    <option value="1">None</option>
-                    <option value="2">Backbone</option>
-                    <option value="3">Surface</option>
-                    <option value="4">Cartoon</option>
-                    <option value="5">Spacefill</option>
-                    <option value="6">Licorice</option>
-                    <option value="7">Line</option>
-                </select>
+            <!-- Bootstrap CSS -->
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+            <!-- Title -->
+            <title>Protein Visualizer</title>
+                    
+            <!-- Navigation Bar Starts -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <!-- Navigation Bar Left Most Title -->
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Protein Visualizer</a>
                 </div>
-            </div>
-            <div class="container-fluid justify-content-end">
-                  <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                  </form>
-            </div>
-        </nav>
-        <script src="ngl.js" defer></script>
-        <script src="script.js" defer></script>
+                <!-- Navigation Bar Slider to change option to combine styles -->
+                <div class="container-fluid">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault" style="color:white;"> Combine Styles</label>
+                    </div>
+                </div>
+                <!-- Navigation Bar select option (with dropdown) for style -->
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <select name="" id="style" class="form-control" style="width: 150px;" onchange="load_pdb()">
+                            <option value="none" selected disabled hidden>Select a Style</option>
+                            <option value="1">None</option>
+                            <option value="2">Backbone</option>
+                            <option value="3">Surface</option>
+                            <option value="4">Cartoon</option>
+                            <option value="5">Spacefill</option>
+                            <option value="6">Licorice</option>
+                            <option value="7">Line</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Navigation Bar button to make canvas full screen -->
+                <div class="container-fluid">
+                    <button type="button" class="btn btn-outline-secondary" onClick="set_fullscreen()" style="color:white">Full Screen</button>
+                </div>
+                <!-- Navigation Bar protein seach bar -->
+                <div class="container-fluid justify-content-end">
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+            <!-- Navigation Bar Ends -->
+                    
+            <!-- Javascript -->
+            <script src="ngl.js" defer></script>
+            <script src="script.js" defer></script>
     </head>
     <body>
+        <!-- WebGL Canvas, where protein visualization will be viewed and interacted with -->
         <div id="viewport" style="width:800px; height:600px;margin: auto"></div>
+        
+        <!-- Footer Start -->
         <footer class="footer bg-dark text-center text-white fixed-bottom">
             <div class="text-center p-3 text-muted"> © 2021 Copyright:
-            <a class="text-white" href="https://github.com/seijihosokawa/protein_visualizer">Seiji & Yuuki Hosokawa</a>
+                <a class="text-white" href="https://github.com/seijihosokawa/protein_visualizer">Seiji & Yuuki Hosokawa</a>
             </div>
         </footer>
+        <!-- Footer End -->
+
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     </body>

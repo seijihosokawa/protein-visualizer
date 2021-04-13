@@ -7,6 +7,7 @@ function load_pdb(){
     //console.log(view_reset_or_build_upon);
     if(!view_reset_or_build_upon){
         stage.removeAllComponents();
+        //stage.dispose();
     }
     stage.loadFile("rcsb://pdb_files/6WZR").then(function (component) {
         // add a "cartoon" representation to the structure component
@@ -19,6 +20,10 @@ function load_pdb(){
     });
 }
 
+//sets the canvas to full screen
+function set_fullscreen(){
+    stage.toggleFullscreen();
+}
 
 //tasks:
 // instructions
