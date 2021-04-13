@@ -42,7 +42,14 @@
                 </div>
                 <!-- Navigation bar button for input file-->
                 <div class="container-fluid">
-                    <input class="form-control" type="file">
+                    <input class="form-control" type="file" id="file-selector"accept=".pdb">
+                    <script>
+                        const fileSelector = document.getElementById('file-selector');
+                        fileSelector.addEventListener('change', (event) => {
+                        const fileList = event.target.files;
+                        console.log(fileList);
+                        });
+                    </script>
                 </div>
                 <!-- Navigation Bar protein seach bar -->
                 <div class="container-fluid justify-content-end">
@@ -60,7 +67,7 @@
     </head>
     <body>
         <!-- WebGL Canvas, where protein visualization will be viewed and interacted with -->
-        <div id="viewport" style="width:800px; height:600px;margin: auto"></div>
+        <div id="viewport" style="width:1200px; height:800px;margin: auto"></div>
         
         <!-- Footer Start -->
         <footer class="footer bg-dark text-center text-white fixed-bottom">
