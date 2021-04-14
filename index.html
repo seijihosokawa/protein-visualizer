@@ -42,7 +42,7 @@
                 </div>
                 <!-- Navigation bar button for input file-->
                 <div class="container-fluid">
-                    <input class="form-control" type="file" id="file-selector"accept=".pdb" onChange="update_current_protein()">
+                    <input class="form-control" type="file"  id="file-selector"accept=".pdb" onChange="update_current_protein()">
                 </div>
                 <!-- Navigation Bar protein seach bar -->
                 <div class="container-fluid justify-content-end">
@@ -60,10 +60,11 @@
     </head>
     <body>
         <!-- WebGL Canvas, where protein visualization will be viewed and interacted with -->
-        <div id="viewport" style="width:1200px; height:800px;margin: auto"></div>
+        <center>
+        <div id="viewport" style="width:1200px; height: 100vh;margin: -56px"></div></center>
         
         <!-- Footer Start -->
-        <footer class="footer bg-dark text-center text-white fixed-bottom">
+        <footer class="footer fixed-bottom bg-dark text-center text-white">
             <div class="text-center p-3 text-muted"> © 2021 Copyright:
                 <a class="text-white" href="https://github.com/seijihosokawa/protein_visualizer">Seiji & Yuuki Hosokawa</a>
             </div>

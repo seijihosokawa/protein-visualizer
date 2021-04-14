@@ -35,10 +35,14 @@ function update_current_protein(){
         const fileList = event.target.files;
         //console.log(fileList);
     });
-    
+    //grabs the current file selected and trims string to have only protein name
     var protein_name = String(fileSelector.value).toUpperCase();
     current_protein = protein_name.substring(protein_name.lastIndexOf("\\") + 1, protein_name.lastIndexOf("."));
     console.log("Current Protein:", current_protein);
+    //unchecks combine styled
+    document.getElementById("flexSwitchCheckDefault").checked = false;
+    //remove previous protein
+    stage.removeAllComponents();
     load_pdb();
 }
 
