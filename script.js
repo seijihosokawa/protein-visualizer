@@ -43,11 +43,28 @@ function update_current_protein(){
 }
 
 //Sorts through the folder and checks each one
-var i;
-function sort_through_folder(){
 
-}
+const ABSPATH = "rcsb://pdb_files/"; // Absolute path to our app directory
+let dictionary = null;
 
+function sort_through_folder(appDataDirEntry, lang) {
+    dictionary = null;
+
+    appDataDirEntry.getDirectory("Dictionaries", {}, function(dirEntry) {
+      dirEntry.getFile(lang + "-dict.json", {}, function(fileEntry) {
+        fileEntry.file(function(dictFile) {
+          let reader = new FileReader();
+  
+          reader.addEventListener("loadend", function() {
+            dictionary = JSON.parse(reader.result);
+          });
+  
+          reader.readAsText(dictFile);
+        });
+      });
+    });
+};
+sort_through_folder("rcsb://pdb_files/")
 /* Does not work yet, download a PNG file of current view
 function take_screenshot(){
     var response = stage.makeImage();
