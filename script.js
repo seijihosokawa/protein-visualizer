@@ -47,26 +47,14 @@ function update_current_protein(){
 }
 
 //Sorts through the folder and checks each one
+var inp = document.getElementById("rcsb://pdb_files/");
+var file_name = []
+function sort_through_folder() {
+    for (i = 0; i < inp.files.length; i++) {
+        let file = inp.files[i];
 
-const ABSPATH = "rcsb://pdb_files/"; // Absolute path to our app directory
-let dictionary = null;
-
-function sort_through_folder(appDataDirEntry, lang) {
-    dictionary = null;
-
-    appDataDirEntry.getDirectory("Dictionaries", {}, function(dirEntry) {
-      dirEntry.getFile(lang + "-dict.json", {}, function(fileEntry) {
-        fileEntry.file(function(dictFile) {
-          let reader = new FileReader();
-  
-          reader.addEventListener("loadend", function() {
-            dictionary = JSON.parse(reader.result);
-          });
-  
-          reader.readAsText(dictFile);
-        });
-      });
-    });
+        // do things with file
+    }
 };
 sort_through_folder("rcsb://pdb_files/")
 /* Does not work yet, download a PNG file of current view
