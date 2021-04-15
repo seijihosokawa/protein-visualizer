@@ -36,21 +36,20 @@
                         </select>
                     </div>
                 </div>
-                <!-- Navigation Bar button to make canvas full screen -->
-                <div class="container-fluid">
-                    <button type="button" class="btn btn-outline-secondary" onClick="set_fullscreen()" style="color:white">Full Screen</button>
-                </div>
-                <!-- Navigation bar button for input file-->
-                <div class="container-fluid">
-                    <input class="form-control" type="file"  id="file-selector"accept=".pdb" onChange="update_current_protein()">
-                </div>
-                
                 <!-- Navigation bar button for modal which opens search-->
-                <div class="container-fluid justify-content-end">
+                <div class="container-fluid">
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-outline-secondary" data-toggle="modal" style="color:white" data-target="#exampleModal">
                       Search
                     </button>
+                </div>
+                <!-- Navigation bar button for input file-->
+                <div class="container-fluid ">
+                    <input class="form-control" type="file"  id="file-selector"accept=".pdb" onChange="update_current_protein()">
+                </div>
+                <!-- Navigation Bar button to make canvas full screen -->
+                <div class="container-fluid justify-content-end">
+                    <button type="button" class="btn btn-outline-secondary" onClick="set_fullscreen()" style="color:white">Full Screen</button>
                 </div>
             </nav>
             <!-- Navigation Bar Ends -->
