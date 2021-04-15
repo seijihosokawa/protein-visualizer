@@ -112,6 +112,7 @@ function search_select_clicked(){
     refresh_stage();
 }
 
+//refreshed the stage and pauses for 0.5 seconds for modal to close if open
 async function refresh_stage(){
     await new Promise(r => setTimeout(r, 500));
     //unchecks combine styled
