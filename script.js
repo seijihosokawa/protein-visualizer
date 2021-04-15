@@ -4,6 +4,7 @@ const protein_list = ['1cvlH', '1qf9H', '1cxcH', '1qtsH', '1rzlH', '3pteH', '1b1
 var stage = new NGL.Stage("viewport");
 var current_protein = "6WRZ";
 // load a PDB structure and consume the returned `Promise`
+
 function load_pdb(){
     //checks whether or not the view should be reset
     var view_reset_or_build_upon = document.getElementById("flexSwitchCheckDefault").checked;
@@ -119,6 +120,11 @@ async function refresh_stage(){
     stage.removeAllComponents();
     load_pdb();
 }
+
+// Enable tooltips everywhere
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
 /* Does not work yet, download a PNG file of current view
 function take_screenshot(){
     var response = stage.makeImage();
