@@ -89,7 +89,7 @@ function take_screenshot(){
 // jpg saving
 // notification (maybe green) that shows for a couple seconds as confirmation of loading or something
 // textbox showing important information such as current loaded protein
-
+// add tooltips ref: https://getbootstrap.com/docs/4.0/components/tooltips/
 //references:
 //https://www.rcsb.org/
 //http://nglviewer.org/ngl/api/class/src/stage/stage.js~Stage.html

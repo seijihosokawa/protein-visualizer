@@ -87,13 +87,47 @@
         </div>
         <!-- Modal Ends -->
         <!-- Footer Start -->
-        <footer class="footer fixed-bottom bg-dark text-center text-white">
+        <footer class="footer fixed-bottom bg-dark text-white">
+            <!-- Footer help button opening an about modal -->
             <div class="text-center p-3 text-muted"> © 2021 Copyright:
-                <a class="text-white" href="https://github.com/seijihosokawa/protein_visualizer">Seiji & Yuuki Hosokawa</a>
+                <a class="text-center text-white" href="https://github.com/seijihosokawa/protein_visualizer">Seiji & Yuuki Hosokawa</a>
+                <a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="Default tooltip">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 100 100">
+                      <rect width="100%" height="100%" fill="#563d7c"></rect>
+                      <circle cx="50" cy="50" r="30" fill="#007bff"></circle>
+                    </svg>
+                  </a>
+                <svg class="question-circle float-end" data-toggle="modal" data-target="#helpModal" xmlns="http://www.w3.org/2000/svg" color="white" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                </svg>
             </div>
         </footer>
         <!-- Footer End -->
+        <!-- Helpful Information Modal -->
+        <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="Help and more info dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Help</h5>     
+                </div>
+                <div class="modal-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt volutpat porttitor. Quisque posuere consequat felis, at tincidunt odio vehicula et. Suspendisse turpis nisi, finibus ac suscipit sed, imperdiet quis leo. Curabitur ac felis convallis, iaculis ipsum at, convallis erat. Nulla accumsan id sem a pharetra. In nec vestibulum turpis. Praesent convallis pharetra eros non bibendum. Suspendisse dictum tortor commodo aliquam venenatis. Morbi aliquam risus at sollicitudin rutrum. Sed ultricies dui ultricies, porttitor leo in, faucibus libero. Nullam consectetur ipsum eget urna bibendum, in tincidunt dolor finibus. Etiam suscipit magna eget justo sollicitudin elementum. Aliquam vitae turpis ligula. Pellentesque rhoncus ex orci. Donec laoreet nisl id ante sagittis eleifend.
 
+                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce diam nisi, maximus ac lacinia ut, auctor eget velit. Mauris dictum ipsum sit amet fringilla maximus. Vivamus a enim et eros tincidunt aliquam. Vivamus pellentesque augue purus, nec vehicula dui consequat eget. Donec ultricies egestas volutpat. Maecenas sit amet ipsum ut nunc vestibulum convallis. Mauris semper pharetra orci eget congue. Fusce eget aliquet orci, cursus faucibus nisl. Sed eleifend ac ligula id efficitur. Nunc et molestie nibh. Proin pellentesque urna augue, ac pretium leo ullamcorper ac.
+                    
+                    Donec malesuada elit quis est interdum pulvinar. Aliquam enim justo, interdum euismod semper quis, tempor sit amet dui. Pellentesque quis faucibus odio. Curabitur diam arcu, semper sit amet venenatis non, vestibulum fermentum tortor. Nulla auctor sapien at neque blandit finibus. Sed non arcu posuere, tincidunt ipsum eu, pellentesque dolor. Donec bibendum laoreet sem vel ultricies. Curabitur lobortis orci sed pretium viverra. Aenean at arcu non erat feugiat tincidunt id venenatis magna. Etiam pretium, ex eu congue malesuada, elit diam ornare sem, et cursus nulla tortor molestie orci. Vivamus non vehicula risus, et venenatis tellus.
+                    
+                    Quisque gravida non elit quis porttitor. Quisque interdum enim ut molestie pretium. Donec finibus posuere elit, ac facilisis sem ullamcorper sed. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus vel molestie eros. Nullam a metus ut elit rhoncus pretium ut id ipsum. Vestibulum eu enim sed felis eleifend molestie nec at magna. Suspendisse luctus ipsum et volutpat volutpat. Nam in sapien quis eros rhoncus commodo eget quis nisi. Mauris tincidunt massa mi, sit amet elementum nibh pretium sed. Aenean scelerisque ex ut ligula vestibulum, id hendrerit arcu fermentum.
+                    
+                    Sed sed tortor eget nunc dapibus rhoncus. Suspendisse tincidunt sem sapien, feugiat cursus est sagittis id. Sed auctor turpis non varius varius. Fusce auctor tincidunt nulla vitae finibus. Integer a velit dui. Cras interdum auctor dui, venenatis condimentum nisi volutpat non. Nunc ac libero suscipit, rhoncus quam a, vehicula neque. Vivamus suscipit finibus lacus eget mattis. Nam tincidunt feugiat mauris, non vehicula mi lobortis ac. Mauris id lacinia velit. Proin enim est, pretium eu sagittis et, mattis id neque. Nulla ac turpis ut velit convallis rhoncus. Maecenas vitae metus tempus, semper orci vitae, accumsan arcu. Duis rutrum ante risus, et ornare arcu efficitur nec. Curabitur finibus mi a tempus mollis. Nulla et sem commodo, sodales enim accumsan, laoreet leo.
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-sm btn-outline-danger" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
         <!-- jQuery first, then Popper.js, then Bootstrap JS
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>-->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
