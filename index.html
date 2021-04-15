@@ -39,13 +39,15 @@
                 <!-- Navigation bar button for modal which opens search-->
                 <div class="container-fluid">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" style="color:white" data-target="#searchModal">
-                      Search
-                    </button>
+                    <span data-toggle="modal" data-target="#searchModal">    
+                        <button type="button" class="btn btn-outline-secondary" style="color:white" data-toggle="tooltip" data-placement="bottom" title="Search for a specific PDB code from our protein folder!">
+                            Search
+                        </button>
+                    </span>
                 </div>
                 <!-- Navigation bar button for input file-->
                 <div class="container-fluid ">
-                    <input class="form-control" type="file"  id="file-selector"accept=".pdb" onChange="update_current_protein()">
+                    <input class="form-control" type="file"  id="file-selector"accept=".pdb" onChange="update_current_protein()" data-toggle="tooltip" data-placement="bottom" title="Upload your own PDB file!">
                 </div>
                 <!-- Navigation Bar button to make canvas full screen -->
                 <div class="container-fluid justify-content-end">
