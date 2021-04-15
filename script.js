@@ -18,7 +18,15 @@ function load_pdb(){
         var e = document.getElementById("style");
         var style_val = e.options[e.selectedIndex].text;
         console.log("Style: ", style_val);
-        component.addRepresentation(style_val);
+        //catching error of searching protein before setting style
+        try{
+            component.addRepresentation(style_val);
+        }
+        catch(TypeError){
+            component.addRepresentation("backbone");
+            let e = document.getElementById("style");
+            e.options[e.selectedIndex].text = "Backbone";
+        }
         // provide a "good" view of the structure
         component.autoView();
     });
@@ -30,14 +38,20 @@ function set_fullscreen(){
 }
 
 //on page loads relevant details: protein list 
-function on_load(){
+function load_modal_list(){
     var html = "";
-    //let input = document.getElementById("searchbar").value
+    //adds every protein in protein list to button and inserts into html
     for (var i =0; i < protein_list.length; i++) {
-        html += "<button type='button' class='list-group-item list-group-item-action' id='"+i+"' onClick='reply_click(this.id)'>" + protein_list[i]+ "</button>";
+        html += "<button type='button' class='list-group-item list-group-item-action' id='"+i+"' onClick='protein_button_click(this.id)'>" + protein_list[i]+ "</button>";
     }
-    console.log(protein_list.length)
+    //console.log(protein_list.length)
     document.getElementById("protein_list").innerHTML = html;
+}
+
+//Function to clear search bar and remove list once close button has been clicked
+function on_modal_close(){
+    document.getElementById("searchbar").value = "";
+    document.getElementById("protein_list").innerHTML = "";
 }
 
 //updates the current protein name to match what has been uploaded so that file can be loaded onto WebGL stage
@@ -47,17 +61,12 @@ function update_current_protein(){
 
     fileSelector.addEventListener('change', (event) => {
         const fileList = event.target.files;
-        //console.log(fileList);
     });
     //grabs the current file selected and trims string to have only protein name
     var protein_name = String(fileSelector.value).toUpperCase();
     current_protein = protein_name.substring(protein_name.lastIndexOf("\\") + 1, protein_name.lastIndexOf("."));
     console.log("Current Protein:", current_protein);
-    //unchecks combine styled
-    document.getElementById("flexSwitchCheckDefault").checked = false;
-    //remove previous protein
-    stage.removeAllComponents();
-    load_pdb();
+    refresh_stage();
 }
 
 //Sorts through the folder and checks each one
@@ -65,9 +74,50 @@ function search_protein(){
    
 }
 
-function reply_click(clicked_id){
-    console.log("Clicked ID:",clicked_id);
-    console.log("Protein Name:",protein_list[clicked_id]);
+//Test function to console.log which protein is being clicked on search modal
+function protein_button_click(clicked_id){
+    //console.log("Clicked ID:",clicked_id);
+    //console.log("Protein Name:",protein_list[clicked_id]);
+    //set search bar equal to protein clicked
+    document.getElementById("searchbar").value = protein_list[clicked_id];
+}
+
+//Filter function to filter out proteins while typing
+function filter_search_function() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("searchbar");
+    filter = input.value.toUpperCase();
+    //console.log('Input Value:',filter);
+    
+    div = document.getElementById("protein_list");
+    
+    protein_buttons = div.getElementsByTagName("button");
+    //filter out buttons that do not have input letters
+    for (i = 0; i < protein_buttons.length; i++) {
+        txtValue = protein_buttons[i].textContent || protein_buttons[i].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            protein_buttons[i].style.display = "";
+        } else {
+            protein_buttons[i].style.display = "none";
+        }
+    }
+}
+
+//Function to grab protein name and load onto stage
+function search_select_clicked(){
+    let search_value = document.getElementById("searchbar").value;
+    //console.log(search_value);
+    current_protein = search_value;
+    refresh_stage();
+}
+
+async function refresh_stage(){
+    await new Promise(r => setTimeout(r, 500));
+    //unchecks combine styled
+    document.getElementById("flexSwitchCheckDefault").checked = false;
+    //removes previous protein and loads new protein
+    stage.removeAllComponents();
+    load_pdb();
 }
 /* Does not work yet, download a PNG file of current view
 function take_screenshot(){
