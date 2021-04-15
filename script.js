@@ -12,6 +12,7 @@ function load_pdb(){
     if(!view_reset_or_build_upon){
         stage.removeAllComponents();
     }
+    console.log("Current Protein:", current_protein);
     stage.loadFile("rcsb://pdb_files/"+current_protein).then(function (component) {
         // add a style representation to the structure component
         var e = document.getElementById("style");
@@ -31,7 +32,7 @@ function set_fullscreen(){
 //on page loads relevant details: protein list 
 function on_load(){
     var html = "";
-    let input = document.getElementById("searchbar").value 
+    //let input = document.getElementById("searchbar").value
     for (var i =0; i < protein_list.length; i++) {
         html += "<button type='button' class='list-group-item list-group-item-action' id='"+i+"' onClick='reply_click(this.id)'>" + protein_list[i]+ "</button>";
     }
