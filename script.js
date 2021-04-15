@@ -33,10 +33,10 @@ function on_load(){
     var html = "";
     let input = document.getElementById("searchbar").value 
     for (var i =0; i < protein_list.length; i++) {
-        html += "<li>" + protein_list[i]+ "</li>";
+        html += "<button type='button' class='list-group-item list-group-item-action' id='"+i+"' onClick='reply_click(this.id)'>" + protein_list[i]+ "</button>";
     }
     console.log(protein_list.length)
-    //document.getElementById("protein_list").innerHTML = html;​
+    document.getElementById("protein_list").innerHTML = html;
 }
 
 //updates the current protein name to match what has been uploaded so that file can be loaded onto WebGL stage
@@ -64,6 +64,10 @@ function search_protein(){
    
 }
 
+function reply_click(clicked_id){
+    console.log("Clicked ID:",clicked_id);
+    console.log("Protein Name:",protein_list[clicked_id]);
+}
 /* Does not work yet, download a PNG file of current view
 function take_screenshot(){
     var response = stage.makeImage();
