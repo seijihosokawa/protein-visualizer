@@ -24,9 +24,9 @@ function load_pdb(){
             component.addRepresentation(style_val);
         }
         catch(TypeError){
-            component.addRepresentation("backbone");
+            component.addRepresentation("none");
             let e = document.getElementById("style");
-            e.options[e.selectedIndex].text = "Backbone";
+            e.options[e.selectedIndex].text = "None";
         }
         // provide a "good" view of the structure
         component.autoView();
