@@ -16,7 +16,7 @@
                 </div>
                 <!-- Navigation Bar Slider to change option to combine styles -->
                 <div class="container-fluid">
-                    <div class="form-check form-switch">
+                    <div class="form-check form-switch" data-toggle="tooltip" data-placement="bottom" title="Toggle to view more than one visualization at a time">
                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
                         <label class="form-check-label" for="flexSwitchCheckDefault" style="color:white;"> Combine Styles</label>
                     </div>
@@ -24,7 +24,7 @@
                 <!-- Navigation Bar select option (with dropdown) for style -->
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <select name="" id="style" class="form-control" style="width: 150px;" onchange="load_pdb()">
+                        <select name="" id="style" class="form-control" style="width: 150px;" onchange="load_pdb()" data-toggle="tooltip" data-placement="bottom" title="View the 3D structure in different representations">
                             <option value="none" selected disabled hidden>Select a Style</option>
                             <option value="1">None</option>
                             <option value="2">Backbone</option>
@@ -51,7 +51,7 @@
                 </div>
                 <!-- Navigation Bar button to make canvas full screen -->
                 <div class="container-fluid justify-content-end">
-                    <button type="button" class="btn btn-outline-secondary" onClick="set_fullscreen()" style="color:white">Full Screen</button>
+                    <button type="button" class="btn btn-outline-secondary" onClick="set_fullscreen()" style="color:white" data-toggle="tooltip" data-placement="left" title="View protein in full screen!">Full Screen</button>
                 </div>
             </nav>
             <!-- Navigation Bar Ends -->
