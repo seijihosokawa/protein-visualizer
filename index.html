@@ -16,7 +16,7 @@
                 </div>
                 <!-- Navigation Bar Slider to change option to combine styles -->
                 <div class="container-fluid">
-                    <div class="form-check form-switch" data-toggle="tooltip" data-placement="bottom" title="Toggle to view more than one visualization at a time">
+                    <div class="form-check form-switch" data-toggle="tooltip" data-placement="bottom" title="Toggle switch to view more than one style at a time">
                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
                         <label class="form-check-label" for="flexSwitchCheckDefault" style="color:white;"> Combine Styles</label>
                     </div>
@@ -25,14 +25,43 @@
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <select name="" id="style" class="form-control" style="width: 150px;" onchange="load_pdb()" data-toggle="tooltip" data-placement="bottom" title="View the 3D structure in different representations">
-                            <option value="none" selected disabled hidden>Select a Style</option>
-                            <option value="1">None</option>
-                            <option value="2">Backbone</option>
-                            <option value="3">Surface</option>
-                            <option value="4">Cartoon</option>
-                            <option value="5">Spacefill</option>
-                            <option value="6">Licorice</option>
-                            <option value="7">Line</option>
+                            <option value="none" selected disabled hidden>Protein Style</option>
+                            <option value="None">None</option>
+                            <option value="Backbone">Backbone</option>
+                            <option value="Surface">Surface</option>
+                            <option value="Cartoon">Cartoon</option>
+                            <option value="Spacefill">Spacefill</option>
+                            <option value="Licorice">Licorice</option>
+                            <option value="Line">Line</option>
+                            <option value="ball+stick">Ball and Stick</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Navigation Bar select option (with dropdown) for color scheme -->
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <select name="" id="colorid" class="form-control" style="width: 150px;" onchange="load_pdb()" data-toggle="tooltip" data-placement="bottom" title="View the 3D structure in different color scheme">
+                            <option value="none" selected disabled hidden>Color Scheme</option>
+                            <option value="None">None</option>
+                            <option value="atomindex">Atomindex</option>
+                            <option value="bfactor">Bfactor</option>
+                            <option value="chainid">Chain ID</option>
+                            <option value="chainindex">Chain Index</option>
+                            <option value="chainname">Chain Name</option>
+                            <option value="densityfit">Density Fit</option>
+                            <option value="element">Element</option>
+                            <option value="entityindex">Entity Index</option>
+                            <option value="entitytype">Entity Type</option>
+                            <option value="geoquality">Geoquality</option>
+                            <option value="hydrophobicity">Hydrophobicity</option>
+                            <option value="modelindex">Model Index</option>
+                            <option value="moleculetype">Molecule Type</option>
+                            <option value="occupancy">Occupancy</option>
+                            <option value="geoquality">Geoquality</option>
+                            <option value="random">Random</option>
+                            <option value="residueindex">Residue Index</option>
+                            <option value="resname">Resname</option>
+                            <option value="sstruc">Sstruc</option>
                         </select>
                     </div>
                 </div>

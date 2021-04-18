@@ -16,17 +16,25 @@ function load_pdb(){
     console.log("Current Protein:", current_protein);
     stage.loadFile("rcsb://pdb_files/"+current_protein).then(function (component) {
         // add a style representation to the structure component
-        var e = document.getElementById("style");
-        var style_val = e.options[e.selectedIndex].text;
-        console.log("Style: ", style_val);
+        var style = document.getElementById("style");
+        var style_val = style.options[style.selectedIndex].value;
+        
+        // add a color scheme to the structure component
+        var color = document.getElementById("colorid");
+        var color_val = color.options[color.selectedIndex].value;
+        console.log("Style: ", style_val,
+                    "Color: ", color_val
+                    );
         //catching error of searching protein before setting style
         try{
-            component.addRepresentation(style_val);
+            if(style_val == "none"){
+                style_val = "backbone";
+            }
+            component.addRepresentation(style_val, {colorScheme: color_val});
         }
         catch(TypeError){
-            component.addRepresentation("none");
-            let e = document.getElementById("style");
-            e.options[e.selectedIndex].text = "None";
+            //setting any errors to default to backbone view and atonmindex colorscheme
+            component.addRepresentation("backbone", {colorScheme: "atomindex"});
         }
         // provide a "good" view of the structure
         component.autoView();
@@ -42,7 +50,7 @@ function set_fullscreen(){
 function load_modal_list(){
     var html = "";
     //adds every protein in protein list to button and inserts into html
-    for (var i =0; i < protein_list.length; i++) {
+    for (var i = 0; i < protein_list.length; i++) {
         html += "<button type='button' class='list-group-item list-group-item-action' id='"+i+"' onClick='protein_button_click(this.id)'>" + protein_list[i]+ "</button>";
     }
     //console.log(protein_list.length)
@@ -68,11 +76,6 @@ function update_current_protein(){
     current_protein = protein_name.substring(protein_name.lastIndexOf("\\") + 1, protein_name.lastIndexOf("."));
     console.log("Current Protein:", current_protein);
     refresh_stage();
-}
-
-//Sorts through the folder and checks each one
-function search_protein(){
-   
 }
 
 //Test function to console.log which protein is being clicked on search modal
