@@ -40,7 +40,7 @@
                 <!-- Navigation Bar select option (with dropdown) for color scheme -->
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <select name="" id="colorid" class="form-control" style="width: 150px;" onchange="load_pdb()" data-toggle="tooltip" data-placement="bottom" title="View the 3D structure in different color scheme">
+                        <select name="" id="colorid" class="form-control" style="width: 150px;" onchange="load_pdb();" data-toggle="tooltip" data-placement="bottom" title="View the 3D structure in different color scheme">
                             <option value="none" selected disabled hidden>Color Scheme</option>
                             <option value="None">None</option>
                             <option value="atomindex">Atomindex</option>
@@ -76,7 +76,7 @@
                 </div>
                 <!-- Navigation bar button for input file-->
                 <div class="container-fluid ">
-                    <input class="form-control" type="file"  id="file-selector"accept=".pdb" onChange="update_current_protein()" data-toggle="tooltip" data-placement="bottom" title="Upload your own PDB file!">
+                    <input class="form-control" type="file"  id="file-selector"accept=".pdb" onChange="update_current_protein();" data-toggle="tooltip" data-placement="bottom" title="Upload your own PDB file!">
                 </div>
                 <!-- Navigation Bar button to make canvas full screen -->
                 <div class="container-fluid justify-content-end">
@@ -92,7 +92,18 @@
     <body>
         <!-- WebGL Canvas, where protein visualization will be viewed and interacted with -->
         <center>
-        <div id="viewport" style="width:100%; height: 100vh;margin: -56px"></div></center>
+            <div class="rounded bg-light border-dark" id="draggableDiv" style="position: absolute;z-index: 9;width: 200px;text-align: left;top: 56px;left: 2px">
+            <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
+            <div class="container rounded text-dark" id="mydivheader" style="
+                cursor: move;
+                z-index: 9;">
+                <div class="float-sm-left">Protein Name: <span id="proteinNameInfo"></span></div>
+                <div class="float-sm-left">Protein Data:</div>
+                <div class="float-sm-left">Float </div>
+            </div>
+            </div>
+            <div id="viewport" style="width:100%; height: 100vh;margin: -56px"></div>
+        </center>
         <!-- Modal -->
         <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
