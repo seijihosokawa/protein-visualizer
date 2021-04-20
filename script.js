@@ -36,11 +36,11 @@ function load_pdb(){
             component.addRepresentation(style_val, {colorScheme: color_val});
         }
         catch(TypeError){
-            //setting any errors to default to backbone view and atonmindex colorscheme
-            component.addRepresentation("backbone", {colorScheme: "atomindex"});
+            //setting any errors to default to cartoon view and atonmindex colorscheme
+            component.addRepresentation("cartoon", {colorScheme: "element"});
         }
-        // provide a "good" view of the structure
-        component.autoView();
+         // provide a "good" view of the structure
+         component.autoView();
     });
 }
 
