@@ -134,6 +134,11 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 })
 
+// Handle window resizing
+window.addEventListener( "resize", function( event ){
+    stage.handleResize();
+}, false );
+
 // Make the DIV element draggable:
 dragElement(document.getElementById("draggableDiv"));
 
