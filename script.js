@@ -15,7 +15,7 @@ function load_pdb(){
         stage.removeAllComponents();
     }
     console.log("Current Protein:", current_protein);
-    load_draggable_info()
+    load_draggable_info();
     stage.loadFile("rcsb://pdb_files/"+current_protein).then(function (component) {
         // add a style representation to the structure component
         var style = document.getElementById("style");
@@ -31,13 +31,16 @@ function load_pdb(){
         try{
             //error handling for selecting color scheme before protein style
             if(style_val == "none"){
-                style_val = "backbone";
+                style_val = "cartoon";
+            }
+            else if(color_val == "none"){
+                color_val = "bfactor";
             }
             component.addRepresentation(style_val, {colorScheme: color_val});
         }
         catch(TypeError){
-            //setting any errors to default to backbone view and atonmindex colorscheme
-            component.addRepresentation("backbone", {colorScheme: "atomindex"});
+            //setting any type errors to default to backbone view and atonmindex colorscheme
+            component.addRepresentation("cartoon", {colorScheme: "bfactor"});
         }
         // provide a "good" view of the structure
         component.autoView();
@@ -78,7 +81,7 @@ function update_current_protein(){
     var protein_name = String(fileSelector.value).toUpperCase();
     current_protein = protein_name.substring(protein_name.lastIndexOf("\\") + 1, protein_name.lastIndexOf("."));
     console.log("Current Protein:", current_protein);
-    load_draggable_info()
+    load_draggable_info();
     refresh_stage();
 }
 
