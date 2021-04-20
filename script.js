@@ -30,10 +30,10 @@ function load_pdb(){
         //catching error of searching protein before setting style
         try{
             //error handling for selecting color scheme before protein style
-            if(style_val == "none"){
+            if(style_val == "None"){
                 style_val = "cartoon";
             }
-            else if(color_val == "none"){
+            else if(color_val == "None"){
                 color_val = "bfactor";
             }
             component.addRepresentation(style_val, {colorScheme: color_val});
@@ -42,8 +42,8 @@ function load_pdb(){
             //setting any type errors to default to backbone view and atonmindex colorscheme
             component.addRepresentation("cartoon", {colorScheme: "bfactor"});
         }
-        // provide a "good" view of the structure
-        component.autoView();
+         // provide a "good" view of the structure
+         component.autoView();
     });
 }
 
