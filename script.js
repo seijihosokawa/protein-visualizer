@@ -52,6 +52,16 @@ function set_fullscreen(){
     stage.toggleFullscreen();
 }
 
+//toggles canvas spin
+function toggle_spin(){
+    stage.toggleSpin();
+}
+
+//toggles canvas rock
+function toggle_rock(){
+    stage.toggleRock();
+}
+
 //on page loads relevant details: protein list 
 function load_modal_list(){
     var html = "";

@@ -68,23 +68,25 @@
                     <!-- Button trigger modal -->
                     <span data-toggle="modal" data-target="#searchModal">    
                         <button type="button" class="btn btn-outline-secondary" style="color:white" data-toggle="tooltip" data-placement="bottom" title="Search for a specific PDB code from our protein folder!">
-                            Search
+                            Search or Upload PDB
                         </button>
                     </span>
                 </div>
-                <!-- Navigation bar button for input file-->
-                <div class="container-fluid ">
-                    <input class="form-control" type="file"  id="file-selector"accept=".pdb" onChange="update_current_protein()" data-toggle="tooltip" data-placement="bottom" title="Upload your own PDB file!">
-                </div>
+                <!-- Navigation bar button for dropdown menu-->
                 <div class="container-fluid justify-content-end">
                     <div class="dropdown">
                       <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" style="color:white">
                         Dropdown Menu
                       </button>
                       <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="dropdownMenuButton2">
-                          <li> <button type="button" class="dropdown-item" onClick="take_screenshot()" data-toggle="tooltip" data-placement="left" title="Take screenshot of current view!">Screenshot</button></li>
+                          <!-- Screenshot button -->
+                          <li><button type="button" class="dropdown-item" onClick="take_screenshot()" data-toggle="tooltip" data-placement="left" title="Take screenshot of current view!">Screenshot</button></li>
+                          <!-- Full screen button -->
                           <li><button type="button" class="dropdown-item" onClick="set_fullscreen()" data-toggle="tooltip" data-placement="left" title="View protein in full screen!">Full Screen</button></li>
-                          <li><button class="dropdown-item" type="button">Something else here</button></li>
+                          <!-- Toggle spin button -->
+                          <li><button type="button" class="dropdown-item" onClick="toggle_spin()" data-toggle="tooltip" data-placement="left" title="Make protein spin!">Toggle Spin</button></li>
+                          <!-- Toggle rock button -->
+                          <li><button type="button" class="dropdown-item" onClick="toggle_rock()" data-toggle="tooltip" data-placement="left" title="Make protein rock!">Toggle Rock</button></li>
                       </ul>
                     </div>
                 </div>
@@ -114,8 +116,15 @@
         <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
-              <div class="modal-body" style="max-height: 80vh;
+                <div class="modal-header">
+                    <!-- Search modal button for input file-->
+                    <div class="container-fluid justify-content-end" style="margin: 5px">
+                        <input class="form-control" type="file"  id="file-selector"accept=".pdb" onChange="update_current_protein()" data-toggle="tooltip" data-placement="bottom" title="Upload your own PDB file!">
+                    </div>
+                </div>
+              <div class="modal-body" style="max-height: 75vh;
                   overflow-y: auto;">
+                  <!-- Search modal field -->
                   <div class="container-fluid justify-content-end" style="margin: 5px">
                       <form class="d-flex">
                           <input class="form-control me-2" id="searchbar" type="text" placeholder="Search" aria-label="Search" onclick="load_modal_list()" onkeyup="filter_search_function()">
@@ -127,6 +136,7 @@
                   </div>
               </div>
               <div class="modal-footer">
+                  <!-- Search modal select and close buttons -->
                 <button class="btn btn-outline-success" type="button" onclick="search_select_clicked()" data-dismiss="modal">Select</button>
                 <button type="button" class="btn btn-outline-danger" data-dismiss="modal" onclick="on_modal_close()">Close</button>
               </div>
