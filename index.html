@@ -84,9 +84,11 @@
                           <!-- Full screen button -->
                           <li><button type="button" class="dropdown-item" onClick="set_fullscreen()" data-toggle="tooltip" data-placement="left" title="View protein in full screen!">Full Screen</button></li>
                           <!-- Toggle spin button -->
-                          <li><button type="button" class="dropdown-item" onClick="toggle_spin()" data-toggle="tooltip" data-placement="left" title="Make protein spin!">Toggle Spin</button></li>
+                          <li><button type="button" class="dropdown-item" onClick="toggle_spin()" data-toggle="tooltip" data-placement="left" title="Click here to make protein spin!">Toggle Spin</button></li>
                           <!-- Toggle rock button -->
-                          <li><button type="button" class="dropdown-item" onClick="toggle_rock()" data-toggle="tooltip" data-placement="left" title="Make protein rock!">Toggle Rock</button></li>
+                          <li><button type="button" class="dropdown-item" onClick="toggle_rock()" data-toggle="tooltip" data-placement="left" title="Click here to make protein rock!">Toggle Rock</button></li>
+                          <!-- Toggle info box button -->
+                          <li><button type="button" class="dropdown-item" onClick="toggle_info()" data-toggle="tooltip" data-placement="left" title="Click here to toggle protein info box!">Toggle Info</button></li>
                       </ul>
                     </div>
                 </div>
@@ -107,7 +109,7 @@
                 z-index: 9;">
                 <div class="float-sm-left">Protein Name: <span id="proteinNameInfo"></span></div>
                 <div class="float-sm-left">Protein Data:</div>
-                <div class="float-sm-left">Float </div>
+                <div class="float-sm-left">Color Scheme </div>
             </div>
             </div>
             <div id="viewport" style="width:100%; height: 100vh;margin: -56px"></div>
@@ -173,7 +175,12 @@
                           </h2>
                           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                This protein visualizer is maintained and developed by Seiji and Yuuki Hosokawa. This project is full of features and allows for advanced visualization and manipulation of molecular structures. Our source code or GitHub repository can be found in the footer containing a hyperlink. You can fetch proteins from our list in "Search" or upload your own as a local file. The default representation is currently cartoon showing the main backbone atoms of successive residues in unbroken chains which are connected by a smooth trace. Various coloring algorithms can be applied to visualize a specific presentation. Developing this was great fun and we learned a lot, have a great day!
+                                <ul class="list-unstyled">
+                                    <li>This protein visualizer is maintained and developed by Seiji and Yuuki Hosokawa. This project is full of features and allows for advanced visualization and manipulation of molecular structures.</li><br>
+                                        <li>Our source code can be found in the footer containing a hyperlink to our GitHub repository.</li><br>
+                                        <li>You can fetch proteins from our list in "Search" or upload your own as a local file. The default representation is currently cartoon showing the main backbone atoms of successive residues in unbroken chains which are connected by a smooth trace. Various coloring algorithms can be applied to visualize a specific presentation.</li><br>
+                                        <li>Developing this was great fun and we learned a lot, have a great day!</li>
+                                </ul>
                             </div>
                           </div>
                         </div>
@@ -185,7 +192,14 @@
                           </h2>
                           <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                Each loaded structure can be displayed using a variety of representations that can be combined to create complex molecular views. Multiple representation types are supported, including space-filling spheres for atoms (spacefill), cylinders and spheres for bonds and atoms (ball+stick), simple lines for bonds (line), secondary structure abstraction (cartoon), and backbone atom trace (backbone). The combine styles toggle will allow for simultaneous viewing of more than one representation. The moveable grey textbox presents important information that will not be included in the screenshot.                            </div>
+                                Each loaded structure can be displayed using a variety of representations that can be combined to create complex molecular views. Multiple representation types are supported:
+                                    <ul>
+                                      <li><strong>Spacefill</strong>: space-filling spheres for atoms</li>
+                                      <li><strong>Ball & Stick</strong>: cylinders and spheres for bonds and atoms</li>
+                                      <li><strong>Line</strong>: simple lines for bonds</li>
+                                      <li><strong>Cartoon</strong>: secondary structure abstraction</li>
+                                      <li><strong>Backbone</strong>: backbone atom trace</li>
+                                    </ul>The combine styles toggle will allow for simultaneous viewing of more than one representation. The moveable grey textbox presents important information that will not be included in the screenshot.                            </div>
                           </div>
                         </div>
                         <div class="accordion-item">
@@ -196,7 +210,11 @@
                           </h2>
                           <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                Do you need assistance with our tools? Do you need a feature? Do you want to send a patch to us? Did you find a bug? <a href="https://github.com/seijihosokawa/protein_visualizer/issues" target="_blank" rel="noopener noreferrer">Report issues at GitHub</a> or contact us directly at yh19587@essex.ac.uk.
+                                <ul>
+                                    <li>Do you need assistance with our tools?</li>
+                                    <li>Do you need a feature?</li>
+                                    <li>Do you want to send a patch to us? Did you find a bug?</li>
+                                </ul><a href="https://github.com/seijihosokawa/protein_visualizer/issues" target="_blank" rel="noopener noreferrer">Report issues at GitHub</a> or contact us directly at yh19587@essex.ac.uk
                             </div>
                           </div>
                         </div>

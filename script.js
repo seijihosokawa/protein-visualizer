@@ -62,6 +62,17 @@ function toggle_rock(){
     stage.toggleRock();
 }
 
+//toggles protein info moveable box
+function toggle_info(){
+    let x = document.getElementById("draggableDiv");
+    if(x.style.display === "none"){
+        x.style.display = "block";
+    }
+    else{
+        x.style.display = "none";
+    }
+}
+
 //on page loads relevant details: protein list 
 function load_modal_list(){
     var html = "";
