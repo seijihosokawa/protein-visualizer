@@ -207,6 +207,7 @@ function take_screenshot(){
 }
  */
 //tasks:
+// examples of proteins with animations + highlighted parts of hemoglobin, covid19, etc
 // instructions with question mark button for help/Q/A
 // two or more proteins viewed at the same time
 // jpg saving
