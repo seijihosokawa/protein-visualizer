@@ -76,6 +76,10 @@
                 <div class="container-fluid ">
                     <input class="form-control" type="file"  id="file-selector"accept=".pdb" onChange="update_current_protein()" data-toggle="tooltip" data-placement="bottom" title="Upload your own PDB file!">
                 </div>
+                <!-- Navigation Bar button to take screenshot -->
+                <div class="container-fluid justify-content-end">
+                    <button type="button" class="btn btn-outline-secondary" onClick="take_screenshot()" style="color:white" data-toggle="tooltip" data-placement="bottom" title="Take screenshot of current view!">Screenshot</button>
+                </div>
                 <!-- Navigation Bar button to make canvas full screen -->
                 <div class="container-fluid justify-content-end">
                     <button type="button" class="btn btn-outline-secondary" onClick="set_fullscreen()" style="color:white" data-toggle="tooltip" data-placement="left" title="View protein in full screen!">Full Screen</button>
