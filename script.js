@@ -191,21 +191,18 @@ function dragElement(elmnt) {
 function load_draggable_info(){
     document.getElementById("proteinNameInfo").innerHTML = current_protein;
 }
-/* Does not work yet, download a PNG file of current view
-function take_screenshot(){
-    var response = stage.makeImage();
-    var blob = new Blob([response], {type: "image/png"});
-    console.log(blob);
-    console.log(blob.size, blob.type);
 
-    const a = document.createElement('a');
-    document.body.appendChild(a);
-    a.style.display = 'none';
-    a.href = URL.createObjectURL(blob);
-    a.download = 'image.png';
-    a.click();
+//take screen shot of current stage
+function take_screenshot(){
+    stage.makeImage({
+        factor: 1,
+        antialias: false,
+        trim: false,
+        transparent: false}).
+    then(function(blob){
+        NGL.download(blob, ""+current_protein+".png");
+    });
 }
- */
 //tasks:
 // instructions with question mark button for help/Q/A
 // two or more proteins viewed at the same time
