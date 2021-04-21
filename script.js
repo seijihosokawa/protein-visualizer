@@ -206,7 +206,6 @@ function take_screenshot(){
 //tasks:
 // instructions with question mark button for help/Q/A
 // two or more proteins viewed at the same time
-// jpg saving
 // notification (maybe green) that shows for a couple seconds as confirmation of loading or something
 // textbox showing important information such as current loaded protein
 // add tooltips ref: https://getbootstrap.com/docs/4.0/components/tooltips/
