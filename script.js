@@ -104,7 +104,7 @@ function update_current_protein(){
     console.log("Current Protein:", current_protein);
     load_draggable_info();
     refresh_stage();
-    document.getElementById("closeModalButton").click()
+    document.getElementById("closeModalButton").click();
 }
 
 //Test function to console.log which protein is being clicked on search modal
@@ -230,6 +230,7 @@ function take_screenshot(){
 // instructions with question mark button for help/Q/A
 // two or more proteins viewed at the same time
 // notification (maybe green) that shows for a couple seconds as confirmation of loading or something
+// adding checkmark for multiple styles
 // textbox showing important information such as current loaded protein
 // add tooltips ref: https://getbootstrap.com/docs/4.0/components/tooltips/
 //references:
