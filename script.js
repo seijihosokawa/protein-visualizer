@@ -52,15 +52,15 @@ function load_pdb(){
 //calculates the bfactor average
 function calc_bfactor_avg(component){
     //calculates B-factor statistic
-    var bfactorSum = 0
-    var bfactorMin = +Infinity
-    var bfactorMax = -Infinity
+    var bfactorSum = 0;
+    var bfactorMin = +Infinity;
+    var bfactorMax = -Infinity;
     component.structure.eachAtom(function(atom) {
         bfactorSum += atom.bfactor;
-        if (bfactorMin > atom.bfactor) bfactorMin = atom.bfactor
-        if (bfactorMax < atom.bfactor) bfactorMax = atom.bfactor
+        if (bfactorMin > atom.bfactor) bfactorMin = atom.bfactor;
+        if (bfactorMax < atom.bfactor) bfactorMax = atom.bfactor;
     });
-    var bfactorAvg = bfactorSum / component.structure.atomCount
+    var bfactorAvg = bfactorSum / component.structure.atomCount;
     //console.log("Sum:", bfactorSum, "Min:", bfactorMin, "Max:", bfactorMax, "Avg:", bfactorAvg)
     return bfactorAvg.toPrecision(4);
 }
