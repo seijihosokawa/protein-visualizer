@@ -224,12 +224,20 @@ function take_screenshot(){
     });
 }
 //tasks:
+<<<<<<< Updated upstream
 // examples of proteins with animations + highlighted parts of hemoglobin, covid19, etc (https://github.com/nglviewer/ngl/blob/v0.9.3/examples/js/examples.js)
+=======
+// parsing pdb file
+// examples of proteins with animations + highlighted parts of hemoglobin, covid19, etc
+>>>>>>> Stashed changes
 // instructions with question mark button for help/Q/A
 // two or more proteins viewed at the same time
 // notification (maybe green) that shows for a couple seconds as confirmation of loading or something
 // textbox showing important information such as current loaded protein
 // add tooltips ref: https://getbootstrap.com/docs/4.0/components/tooltips/
+// https://proteopedia.org/wiki/fgij/
+// https://www.umass.edu/molvis/workshop/osaka08s.htm
+
 //references:
 //https://www.rcsb.org/
 //http://nglviewer.org/ngl/api/class/src/stage/stage.js~Stage.html
