@@ -26,13 +26,18 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <select name="" id="style" class="form-control" style="width: 150px;" onchange="load_pdb()" data-toggle="tooltip" data-placement="bottom" title="View the 3D structure in different representations">
                             <option value="None" selected disabled hidden>Protein Style</option>
-                            <option value="Cartoon">Cartoon</option>
-                            <option value="Backbone">Backbone</option>
-                            <option value="Surface">Surface</option>
-                            <option value="Spacefill">Spacefill</option>
-                            <option value="Licorice">Licorice</option>
-                            <option value="Line">Line</option>
-                            <option value="ball+stick">Ball and Stick</option>
+                            <option value="cartoon">Cartoon</option>
+                            <option value="backbone">Backbone</option>
+                            <option value="ball+stick">Ball & Stick</option>
+                            <option value="contact">Contact</option>
+                            <option value="helixorient">Helixorient</option>
+                            <option value="licorice">Licorice</option>
+                            <option value="line">Line</option>
+                            <option value="rocket">Rocket</option>
+                            <option value="rope">Rope</option>
+                            <option value="spacefill">Spacefill</option>
+                            <option value="surface">Surface</option>
+                            <option value="trace">Trace</option>
                         </select>
                     </div>
                 </div>
@@ -140,7 +145,7 @@
               <div class="modal-footer">
                   <!-- Search modal select and close buttons -->
                 <button class="btn btn-outline-success" type="button" onclick="search_select_clicked()" data-dismiss="modal">Select</button>
-                <button type="button" class="btn btn-outline-danger" data-dismiss="modal" onclick="on_modal_close()">Close</button>
+                <button type="button" id="closeModalButton" class="btn btn-outline-danger" data-dismiss="modal" onclick="on_modal_close()">Close</button>
               </div>
             </div>
           </div>
@@ -199,7 +204,8 @@
                                       <li><strong>Line</strong>: simple lines for bonds</li>
                                       <li><strong>Cartoon</strong>: secondary structure abstraction</li>
                                       <li><strong>Backbone</strong>: backbone atom trace</li>
-                                    </ul>The combine styles toggle will allow for simultaneous viewing of more than one representation. The moveable grey textbox presents important information that will not be included in the screenshot.                            </div>
+                                    </ul>The combine styles toggle will allow for simultaneous viewing of more than one representation. The moveable grey textbox presents important information that will not be included in the screenshot.
+                            </div>
                           </div>
                         </div>
                         <div class="accordion-item">

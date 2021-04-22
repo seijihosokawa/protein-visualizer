@@ -103,6 +103,7 @@ function update_current_protein(){
     console.log("Current Protein:", current_protein);
     load_draggable_info();
     refresh_stage();
+    document.getElementById("closeModalButton").click()
 }
 
 //Test function to console.log which protein is being clicked on search modal
