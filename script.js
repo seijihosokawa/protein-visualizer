@@ -27,17 +27,8 @@ function load_pdb(){
                     "Color: ", color_val
                     );
         //calculates B-factor statistic
-        var bfactorSum = 0
-        var bfactorMin = +Infinity
-        var bfactorMax = -Infinity
-        component.structure.eachAtom(function(atom) {
-            bfactorSum += atom.bfactor;
-            if (bfactorMin > atom.bfactor) bfactorMin = atom.bfactor
-            if (bfactorMax < atom.bfactor) bfactorMax = atom.bfactor
-        });
-        var bfactorAvg = bfactorSum / component.structure.atomCount
-        console.log("Sum:", bfactorSum, "Min:", bfactorMin, "Max:", bfactorMax, "Avg:", bfactorAvg)
-        load_draggable_info(bfactorAvg.toPrecision(4));
+        let bfactorAvg = calc_bfactor_avg(component);
+        load_draggable_info(bfactorAvg);
         //catching error of searching protein before setting style
         try{
             //error handling for selecting color scheme before protein style
@@ -56,6 +47,22 @@ function load_pdb(){
          // provide a "good" view of the structure
          component.autoView();
     });
+}
+
+//calculates the bfactor average
+function calc_bfactor_avg(component){
+    //calculates B-factor statistic
+    var bfactorSum = 0
+    var bfactorMin = +Infinity
+    var bfactorMax = -Infinity
+    component.structure.eachAtom(function(atom) {
+        bfactorSum += atom.bfactor;
+        if (bfactorMin > atom.bfactor) bfactorMin = atom.bfactor
+        if (bfactorMax < atom.bfactor) bfactorMax = atom.bfactor
+    });
+    var bfactorAvg = bfactorSum / component.structure.atomCount
+    //console.log("Sum:", bfactorSum, "Min:", bfactorMin, "Max:", bfactorMax, "Avg:", bfactorAvg)
+    return bfactorAvg.toPrecision(4);
 }
 
 //sets the canvas to full screen
@@ -114,7 +121,6 @@ function update_current_protein(){
     current_protein = protein_name.substring(protein_name.lastIndexOf("\\") + 1, protein_name.lastIndexOf("."));
     console.log("Current Protein:", current_protein);
     
-    load_draggable_info();
     refresh_stage();
     document.getElementById("closeModalButton").click();
 }
