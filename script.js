@@ -225,12 +225,9 @@ function take_screenshot(){
     });
 }
 //tasks:
-<<<<<<< Updated upstream
 // examples of proteins with animations + highlighted parts of hemoglobin, covid19, etc (https://github.com/nglviewer/ngl/blob/v0.9.3/examples/js/examples.js)
-=======
 // parsing pdb file
 // examples of proteins with animations + highlighted parts of hemoglobin, covid19, etc
->>>>>>> Stashed changes
 // instructions with question mark button for help/Q/A
 // two or more proteins viewed at the same time
 // notification (maybe green) that shows for a couple seconds as confirmation of loading or something
