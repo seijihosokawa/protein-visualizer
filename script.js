@@ -4,6 +4,7 @@ const protein_list = ['1cvlH', '1qf9H', '1cxcH', '1qtsH', '1rzlH', '3pteH', '1b1
 var stage = new NGL.Stage("viewport");
 //set a default value for current protein
 var current_protein = "6WRZ";
+var bfactorAvg = null;
 
 // load a PDB structure and consume the returned `Promise`
 function load_pdb(){
@@ -15,18 +16,28 @@ function load_pdb(){
         stage.removeAllComponents();
     }
     console.log("Current Protein:", current_protein);
-    load_draggable_info();
     stage.loadFile("rcsb://pdb_files/"+current_protein).then(function (component) {
         // add a style representation to the structure component
         var style = document.getElementById("style");
         var style_val = style.options[style.selectedIndex].value;
-        
         // add a color scheme to the structure component
         var color = document.getElementById("colorid");
         var color_val = color.options[color.selectedIndex].value;
         console.log("Style: ", style_val,
                     "Color: ", color_val
                     );
+        //calculates B-factor statistic
+        var bfactorSum = 0
+        var bfactorMin = +Infinity
+        var bfactorMax = -Infinity
+        component.structure.eachAtom(function(atom) {
+            bfactorSum += atom.bfactor;
+            if (bfactorMin > atom.bfactor) bfactorMin = atom.bfactor
+            if (bfactorMax < atom.bfactor) bfactorMax = atom.bfactor
+        });
+        var bfactorAvg = bfactorSum / component.structure.atomCount
+        console.log("Sum:", bfactorSum, "Min:", bfactorMin, "Max:", bfactorMax, "Avg:", bfactorAvg)
+        load_draggable_info(bfactorAvg.toPrecision(4));
         //catching error of searching protein before setting style
         try{
             //error handling for selecting color scheme before protein style
@@ -102,6 +113,7 @@ function update_current_protein(){
     var protein_name = String(fileSelector.value).toUpperCase();
     current_protein = protein_name.substring(protein_name.lastIndexOf("\\") + 1, protein_name.lastIndexOf("."));
     console.log("Current Protein:", current_protein);
+    
     load_draggable_info();
     refresh_stage();
     document.getElementById("closeModalButton").click();
@@ -210,8 +222,9 @@ function dragElement(elmnt) {
 }
 
 //load the data into the draggable info box
-function load_draggable_info(){
+function load_draggable_info(bfactorAvg){
     document.getElementById("proteinNameInfo").innerHTML = current_protein;
+    document.getElementById("bfactorstat").innerHTML = bfactorAvg;
 }
 
 //take screen shot of current stage
@@ -225,7 +238,10 @@ function take_screenshot(){
         NGL.download(blob, ""+current_protein+".png");
     });
 }
+
 //tasks:
+// examples of proteins with animations + highlighted parts of hemoglobin, covid19, etc (https://github.com/nglviewer/ngl/blob/v0.9.3/examples/js/examples.js)
+// parsing pdb file
 // examples of proteins with animations + highlighted parts of hemoglobin, covid19, etc
 // instructions with question mark button for help/Q/A
 // two or more proteins viewed at the same time
@@ -233,6 +249,9 @@ function take_screenshot(){
 // adding checkmark for multiple styles
 // textbox showing important information such as current loaded protein
 // add tooltips ref: https://getbootstrap.com/docs/4.0/components/tooltips/
+// https://proteopedia.org/wiki/fgij/
+// https://www.umass.edu/molvis/workshop/osaka08s.htm
+
 //references:
 //https://www.rcsb.org/
 //http://nglviewer.org/ngl/api/class/src/stage/stage.js~Stage.html
