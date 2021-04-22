@@ -20,7 +20,6 @@ function load_pdb(){
         // add a style representation to the structure component
         var style = document.getElementById("style");
         var style_val = style.options[style.selectedIndex].value;
-        
         // add a color scheme to the structure component
         var color = document.getElementById("colorid");
         var color_val = color.options[color.selectedIndex].value;
@@ -225,7 +224,7 @@ function take_screenshot(){
     });
 }
 //tasks:
-// examples of proteins with animations + highlighted parts of hemoglobin, covid19, etc
+// examples of proteins with animations + highlighted parts of hemoglobin, covid19, etc (https://github.com/nglviewer/ngl/blob/v0.9.3/examples/js/examples.js)
 // instructions with question mark button for help/Q/A
 // two or more proteins viewed at the same time
 // notification (maybe green) that shows for a couple seconds as confirmation of loading or something
