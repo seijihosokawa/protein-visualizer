@@ -3,7 +3,7 @@ const protein_list = ['1cvlH', '1qf9H', '1cxcH', '1qtsH', '1rzlH', '3pteH', '1b1
 //create stage
 var stage = new NGL.Stage("viewport");
 //set a default value for current protein
-var current_protein = "6WRZ";
+var current_protein = "3pqr";
 
 // load a PDB structure and consume the returned `Promise`
 function load_pdb(){
@@ -25,28 +25,12 @@ function load_pdb(){
         console.log("Style: ", style_val,
                     "Color: ", color_val
                     );
-        //calculates B-factor statistic
-        let bfactorAvg = calc_bfactor_avg(component);
-        load_draggable_info(bfactorAvg);
+        //loads info box
+        load_draggable_info(component);
         //catching error of searching protein before setting style
         try{
-            //error handling for selecting color scheme before protein style
-            if(style_val == "None"){
-                style_val = "cartoon";
-            }
-            else if(color_val == "None"){
-                color_val = "bfactor";
-            }
-            component.addRepresentation(style_val, {colorScheme: color_val});
-            component.addRepresentation( "label", {
-                            sele: "( 135 or 223 or 347 or 296 ) and .CB",
-                            color: "white", scale: 1.7
-                        } );
-            component.addRepresentation( "label", {
-                            sele: "RET and .C19",
-                            color: "white", scale: 1.7, labelType: "resname"
-                        } );
-
+            //calling function to add components to stage
+            add_components_to_stage(component, style_val, color_val);
         }
         catch(TypeError){
             //setting any type errors to default to backbone view and atonmindex colorscheme
@@ -54,6 +38,26 @@ function load_pdb(){
         }
          // provide a "good" view of the structure
          component.autoView();
+    });
+}
+
+//function to add all components to stage
+function add_components_to_stage(component, style_val, color_val){
+    
+    //error handling for selecting color scheme before protein style
+    if(style_val == "None")style_val = "cartoon";
+    if(color_val == "None")color_val = "bfactor";
+    
+    //adding representation
+    component.addRepresentation(style_val, {colorScheme: color_val});
+    //adding labels
+    component.addRepresentation("label",{
+        sele: "( 135 or 223 or 347 or 296 ) and .CB",
+        color: "white", scale: 1.7
+    });
+    component.addRepresentation("label",{
+        sele: "RET and .C19",
+        color: "white", scale: 1.7, labelType: "resname"
     });
 }
 
@@ -245,8 +249,25 @@ function dragElement(elmnt) {
 }
 
 //load the data into the draggable info box
-function load_draggable_info(bfactorAvg){
+function load_draggable_info(component){
+    /*
+    console.log("entityList:",component.structure.entityList);
+    console.log("bondCount:",component.structure.residueMap);
+    */
+    
+    let bfactorAvg = calc_bfactor_avg(component);
+    let title = component.structure.title;
+    let atomCount = component.structure.atomCount;
+    let bondCount = component.structure.bondCount;
+    
+    
     document.getElementById("proteinNameInfo").innerHTML = current_protein;
+    document.getElementById("proteinTitle").innerHTML = title;
+    document.getElementById("atomCount").innerHTML = atomCount;
+    document.getElementById("bondCount").innerHTML = bondCount;
+    //for macro molecules
+    //document.getElementById("bondCount").innerHTML = macromolecules;
+
     document.getElementById("bfactorstat").innerHTML = bfactorAvg;
 }
 
