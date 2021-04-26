@@ -24,7 +24,7 @@
                 <!-- Navigation Bar select option (with dropdown) for style -->
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <select name="" id="style" class="form-control" style="width: 150px;" onchange="load_pdb()" data-toggle="tooltip" data-placement="bottom" title="View the 3D structure in different representations">
+                        <select name="" id="style" class="form-select" style="width: 150px;" onchange="load_pdb()" data-toggle="tooltip" data-placement="bottom" title="View the 3D structure in different representations">
                             <option value="None" selected disabled hidden>Protein Style</option>
                             <option value="cartoon">Cartoon</option>
                             <option value="backbone">Backbone</option>
@@ -44,8 +44,8 @@
                 <!-- Navigation Bar select option (with dropdown) for color scheme -->
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <select name="" id="colorid" class="form-control" style="width: 150px;" onchange="load_pdb()" data-toggle="tooltip" data-placement="bottom" title="View the 3D structure in different color scheme">
-                            <option value="None" selected disabled hidden>Color Scheme</option>
+                        <select name="" id="colorid" class="form-select" style="width: 155px;" onchange="load_pdb()" data-toggle="tooltip" data-placement="bottom" title="View the 3D structure in different color scheme">
+                            <option value="None" selected disabled hidden>Color Scheme </option>
                             <option value="atomindex">Atomindex</option>
                             <option value="bfactor">Bfactor</option>
                             <option value="chainid">Chain ID</option>
@@ -94,6 +94,16 @@
                           <li><button type="button" class="dropdown-item" onClick="toggle_rock()" data-toggle="tooltip" data-placement="left" title="Click here to make protein rock!">Toggle Rock</button></li>
                           <!-- Toggle info box button -->
                           <li><button type="button" class="dropdown-item" onClick="toggle_info()" data-toggle="tooltip" data-placement="left" title="Click here to toggle protein info box!">Toggle Info</button></li>
+                          <!-- Popular proteins -->
+                          <li><center>
+                              <select name="" id="popularProteins" class="form-select" style="width: 150px;" onchange="set_example_protein()" data-toggle="tooltip" data-placement="bottom" title="Select a popular protein as an example!">
+                                  <option value="None" selected disabled hidden>Examples</option>
+                                  <option value="1A3N">Hemoglobin</option>
+                                  <option value="4PKH">Actin</option>
+                                  <option value="1SA0">Tubulin</option>
+                                  <option value="3LEL">Histones</option>
+                              </select></center>
+                          </li>
                       </ul>
                     </div>
                 </div>
@@ -105,8 +115,8 @@
             <script src="script.js" defer></script>
     </head>
     <body>
-        <!-- WebGL Canvas, where protein visualization will be viewed and interacted with -->
         <center>
+            <!-- Draggable element with protein info -->
             <div class="rounded bg-light border-dark" id="draggableDiv" style="position: absolute;z-index: 9;width: 200px;text-align: left;top: 56px;left: 2px">
             <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
             <div class="container rounded text-dark" id="mydivheader" style="
@@ -117,6 +127,7 @@
                 <div class="float-sm-left">B-Factor: <span id="bfactorstat"></span></div>
             </div>
             </div>
+            <!-- WebGL Canvas, where protein visualization will be viewed and interacted with -->
             <div id="viewport" style="width:100%; height: 100vh;margin: -56px"></div>
         </center>
         <!-- Modal -->

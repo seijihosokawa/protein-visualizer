@@ -49,6 +49,15 @@ function load_pdb(){
     });
 }
 
+//setting popular examples as protein
+function set_example_protein(){
+    var popular_protein = document.getElementById("popularProteins");
+    var popular_protein_val = popular_protein.options[popular_protein.selectedIndex].value;
+    //console.log("Popular protein",popular_protein_val);
+    current_protein = popular_protein_val;
+    refresh_stage();
+}
+
 //calculates the bfactor average
 function calc_bfactor_avg(component){
     //calculates B-factor statistic
