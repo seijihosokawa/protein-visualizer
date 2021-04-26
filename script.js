@@ -253,21 +253,22 @@ function load_draggable_info(component){
     /*
     console.log("entityList:",component.structure.entityList);
     console.log("bondCount:",component.structure.residueMap);
+    https://nglviewer.org/ngl/api/class/src/structure/structure.js~Structure.html
     */
     
+    //get info box data
     let bfactorAvg = calc_bfactor_avg(component);
     let title = component.structure.title;
     let atomCount = component.structure.atomCount;
     let bondCount = component.structure.bondCount;
     
-    
+    //set info box html text
     document.getElementById("proteinNameInfo").innerHTML = current_protein;
     document.getElementById("proteinTitle").innerHTML = title;
     document.getElementById("atomCount").innerHTML = atomCount;
     document.getElementById("bondCount").innerHTML = bondCount;
     //for macro molecules
     //document.getElementById("bondCount").innerHTML = macromolecules;
-
     document.getElementById("bfactorstat").innerHTML = bfactorAvg;
 }
 
