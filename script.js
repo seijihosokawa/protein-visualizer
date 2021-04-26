@@ -4,7 +4,6 @@ const protein_list = ['1cvlH', '1qf9H', '1cxcH', '1qtsH', '1rzlH', '3pteH', '1b1
 var stage = new NGL.Stage("viewport");
 //set a default value for current protein
 var current_protein = "6WRZ";
-var bfactorAvg = null;
 
 // load a PDB structure and consume the returned `Promise`
 function load_pdb(){
@@ -39,6 +38,15 @@ function load_pdb(){
                 color_val = "bfactor";
             }
             component.addRepresentation(style_val, {colorScheme: color_val});
+            component.addRepresentation( "label", {
+                            sele: "( 135 or 223 or 347 or 296 ) and .CB",
+                            color: "white", scale: 1.7
+                        } );
+            component.addRepresentation( "label", {
+                            sele: "RET and .C19",
+                            color: "white", scale: 1.7, labelType: "resname"
+                        } );
+
         }
         catch(TypeError){
             //setting any type errors to default to backbone view and atonmindex colorscheme
