@@ -87,7 +87,7 @@
                           <!-- Screenshot button -->
                           <li><button type="button" class="dropdown-item" onClick="take_screenshot()" data-toggle="tooltip" data-placement="left" title="Take screenshot of current view!">Screenshot</button></li>
                           <!-- Full screen button -->
-                          <li><button type="button" class="dropdown-item" onClick="set_fullscreen()" data-toggle="tooltip" data-placement="left" title="View protein in full screen!">Full Screen</button></li>
+                          <li><button type="button" class="dropdown-item" onClick="set_fullscreen()" data-toggle="tooltip" data-placement="left" title="Click to view protein in full screen!">Full Screen</button></li>
                           <!-- Toggle spin button -->
                           <li><button type="button" class="dropdown-item" onClick="toggle_spin()" data-toggle="tooltip" data-placement="left" title="Click here to make protein spin!">Toggle Spin</button></li>
                           <!-- Toggle rock button -->
@@ -122,11 +122,11 @@
             <div class="container rounded text-dark" id="mydivheader" style="
                 cursor: move;
                 z-index: 9;">
-                <div class="float-sm-left">PDB Code: <span id="proteinNameInfo"></span></div>
-                <div class="float-sm-left">Title: <span id="proteinTitle"></span></div>
-                <div class="float-sm-left">Atom Count: <span id="atomCount"></span></div>
-                <div class="float-sm-left">Bond Count: <span id="bondCount"></span></div>
-                <div class="float-sm-left">B-Factor: <span id="bfactorstat"></span></div>
+                <div class="float-sm-left"><strong>PDB Code</strong>: <span id="proteinNameInfo"></span></div>
+                <div class="float-sm-left"><strong>Title</strong>: <span id="proteinTitle"></span></div>
+                <div class="float-sm-left"><strong>Atom Count</strong>: <span id="atomCount"></span></div>
+                <div class="float-sm-left"><strong>Bond Count</strong>: <span id="bondCount"></span></div>
+                <div class="float-sm-left"><strong>B-Factor</strong>: <span id="bfactorstat"></span></div>
             </div>
             </div>
             <!-- WebGL Canvas, where protein visualization will be viewed and interacted with -->
