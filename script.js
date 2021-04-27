@@ -251,7 +251,6 @@ function dragElement(elmnt) {
 //load the data into the draggable info box
 function load_draggable_info(component){
     /*
-    console.log("entityList:",component.structure.entityList);
     console.log("bondCount:",component.structure.residueMap);
     https://nglviewer.org/ngl/api/class/src/structure/structure.js~Structure.html
     */
@@ -261,15 +260,42 @@ function load_draggable_info(component){
     let title = component.structure.title;
     let atomCount = component.structure.atomCount;
     let bondCount = component.structure.bondCount;
+    let temp_list = component.structure.entityList;
     
+    //console.log(temp_list);
+    //passes list of objects to filter and print macromolecules
+    build_macromolecules_list(temp_list);
+
     //set info box html text
     document.getElementById("proteinNameInfo").innerHTML = current_protein;
     document.getElementById("proteinTitle").innerHTML = title;
     document.getElementById("atomCount").innerHTML = atomCount;
     document.getElementById("bondCount").innerHTML = bondCount;
-    //for macro molecules
-    //document.getElementById("bondCount").innerHTML = macromolecules;
     document.getElementById("bfactorstat").innerHTML = bfactorAvg;
+}
+
+//handles building the html list for the macromolecules info
+function build_macromolecules_list(temp_list){
+    let macro_list = [];
+    
+    for(let i = 0; i < temp_list.length; i++){
+        macro_list.push(temp_list[i].description);
+    }
+    //console.log(macro_list);
+    //remove previous macromolecules from list
+    document.getElementById("macromolecules_list").innerHTML = "";
+    let list = document.getElementById("macromolecules_list");
+    //build out list of macromolecules
+    macro_list.forEach(function(item){
+        let li = document.createElement("li");
+        li.innerText = capitalize(item);
+        list.appendChild(li);
+    });
+}
+
+//returns a capitalized string
+function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 //take screen shot of current stage
@@ -286,12 +312,8 @@ function take_screenshot(){
 
 //tasks:
 // examples of proteins with animations + highlighted parts of hemoglobin, covid19, etc (https://github.com/nglviewer/ngl/blob/v0.9.3/examples/js/examples.js)
-// parsing pdb file
 // examples of proteins with animations + highlighted parts of hemoglobin, covid19, etc
-// instructions with question mark button for help/Q/A
-// two or more proteins viewed at the same time
 // notification (maybe green) that shows for a couple seconds as confirmation of loading or something
-// adding checkmark for multiple styles
 // textbox showing important information such as current loaded protein
 // add tooltips ref: https://getbootstrap.com/docs/4.0/components/tooltips/
 // https://proteopedia.org/wiki/fgij/
