@@ -94,14 +94,17 @@
                           <li><button type="button" class="dropdown-item" onClick="toggleRock()" data-toggle="tooltip" data-placement="left" title="Click here to make protein rock!">Toggle Rock</button></li>
                           <!-- Toggle info box button -->
                           <li><button type="button" class="dropdown-item" onClick="toggleInfo()" data-toggle="tooltip" data-placement="left" title="Click here to toggle protein info box!">Toggle Info</button></li>
-                          <!-- Popular proteins -->
+                          <!-- Example proteins -->
                           <li><center>
-                              <select name="" id="popularProteins" class="form-select" style="width: 150px;" onchange="setExampleProtein()" data-toggle="tooltip" data-placement="bottom" title="Select a popular protein as an example!">
+                              <select name="" id="exampleProteins" class="form-select" style="width: 150px;" onchange="setExampleProtein()" data-toggle="tooltip" data-placement="bottom" title="Select a protein from our curated list as an example!">
                                   <option value="None" selected disabled hidden>Examples</option>
                                   <option value="1A3N">Hemoglobin</option>
                                   <option value="4PKH">Actin</option>
                                   <option value="1SA0">Tubulin</option>
                                   <option value="3LEL">Histones</option>
+                                  <option value="4v99">Panicum Mosaic Virus</option>
+                                  <option value="4v5x">3D DNA-origami object</option>
+                                  <option value="3JB9">Yeast spliceosome</option>
                               </select></center>
                           </li>
                       </ul>
@@ -142,7 +145,7 @@
                 <div class="modal-header">
                     <!-- Search modal button for input file-->
                     <div class="container-fluid justify-content-end" style="margin: 5px">
-                        <input class="form-control" type="file"  id="file-selector"accept=".pdb" onChange="updateCurrentProtein()" data-toggle="tooltip" data-placement="bottom" title="Upload your own PDB file!">
+                        <input class="form-control" type="file"  id="file-selector"accept=".pdb, .mmcif, .cif, .mcif, .ent, .pqr, .gro, .sdf, .sd, .mol2, .mmtf" onChange="updateCurrentProtein()" data-toggle="tooltip" data-placement="bottom" title="Upload your own PDB file!">
                     </div>
                 </div>
               <div class="modal-body" style="max-height: 75vh;
