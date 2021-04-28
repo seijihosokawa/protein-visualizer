@@ -15,7 +15,7 @@ function load_pdb(){
         stage.removeAllComponents();
     }
     console.log("Current Protein:", current_protein);
-    stage.loadFile("rcsb://pdb_files/"+current_protein).then(function (component) {
+    stage.loadFile("rcsb://protein_files/"+current_protein).then(function (component) {
         // add a style representation to the structure component
         var style = document.getElementById("style");
         var style_val = style.options[style.selectedIndex].value;
@@ -63,8 +63,9 @@ function add_components_to_stage(component, style_val, color_val){
 
 //setting popular examples as protein
 function set_example_protein(){
-    var popular_protein = document.getElementById("popularProteins");
+    var popular_protein = document.getElementById("exampleProteins");
     var popular_protein_val = popular_protein.options[popular_protein.selectedIndex].value;
+    
     //console.log("Popular protein",popular_protein_val);
     current_protein = popular_protein_val;
     refresh_stage();
