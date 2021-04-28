@@ -302,10 +302,10 @@ function getUniqueChainsCount(chainStore){
 
 //handles building the html list for the macromolecules info
 function buildMacromoleculesList(entityList){
-    let macroList = [];
+    let macroList = new Set();
     
     for(let i = 0; i < entityList.length; i++){
-        macroList.push(entityList[i].description);
+        macroList.add(entityList[i].description);
     }
     //console.log(macro_list);
     //remove previous macromolecules from list
