@@ -204,9 +204,9 @@ $(function () {
 })
 
 // Handle window resizing
-window.addEventListener( "resize", function( event ){
+window.addEventListener("resize", function(event){
     stage.handleResize();
-}, false );
+}, false);
 
 // Make the DIV element draggable:
 dragElement(document.getElementById("draggableDiv"));
@@ -258,18 +258,17 @@ function loadDraggableInfo(component){
     console.log("Residue Map:",component.structure.residueMap.dict);
     //https://nglviewer.org/ngl/api/class/src/structure/structure.js~Structure.html
     
-    let distinctChains = [...new Set(component.structure.chainStore.chainname)];
-    let chainsCount = distinctChains.length - 1;
-    
     //get info box data
-    let bfactorAvg = calcBfactorAvg(component);
     let title = component.structure.title;
     let atomCount = component.structure.atomCount;
     let bondCount = component.structure.bondCount;
     let residueCount = component.structure.residueStore.count;
     let entityList = component.structure.entityList;
+    
+    let chainsCount = getUniqueChainsCount(component.structure.chainStore);
+    let bfactorAvg = calcBfactorAvg(component);
+    let proteinElements = getProteinElements(component.structure.atomMap);
 
-    //console.log(temp_list);
     //passes list of objects to filter and print macromolecules
     buildMacromoleculesList(entityList);
 
@@ -281,14 +280,32 @@ function loadDraggableInfo(component){
     document.getElementById("residueCount").innerHTML = residueCount;
     document.getElementById("chainsCount").innerHTML = chainsCount;
     document.getElementById("bfactorstat").innerHTML = bfactorAvg;
+    document.getElementById("proteinElements").innerHTML = proteinElements;
+}
+
+//return unqiue elements atoms made of
+function getProteinElements(atomMap){
+    let distinctElements = new Set();
+    for(let i = 0; i < atomMap.list.length;i++){
+        distinctElements.add(atomMap.list[i].element);
+    }
+    //return sorted array from the distinctElement set
+    return [...new Set(distinctElements)].sort().join(", ");
+}
+
+//returns the amount of unique chains in protein
+function getUniqueChainsCount(chainStore){
+    let distinctChains = [...new Set(chainStore.chainname)];
+    //returns count of distinct chains subtracting 1 (no chains with the value of 0)
+    return distinctChains.length - 1;
 }
 
 //handles building the html list for the macromolecules info
 function buildMacromoleculesList(entityList){
-    let macroList = [];
+    let macroList = new Set();
     
     for(let i = 0; i < entityList.length; i++){
-        macroList.push(entityList[i].description);
+        macroList.add(entityList[i].description);
     }
     //console.log(macro_list);
     //remove previous macromolecules from list

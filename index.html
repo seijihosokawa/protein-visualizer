@@ -127,7 +127,7 @@
             <!-- Draggable element with protein info -->
             <div class="rounded bg-light border-dark" id="draggableDiv" style="position: absolute;z-index: 9;width: 305px;text-align: left;top: 56px;left: 2px">
             <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
-            <div class="container rounded text-dark" id="mydivheader" style="
+            <div class="container rounded text-dark overflow-auto" id="mydivheader" style="
                 cursor: move;
                 z-index: 9;">
                 <div class="float-sm-left"><strong>PDB Code</strong>: <span id="proteinNameInfo"></span></div>
@@ -137,7 +137,8 @@
                 <div class="float-sm-left"><strong>Residue Count</strong>: <span id="residueCount"></span></div>
                 <div class="float-sm-left"><strong>Unique Chains</strong>: <span id="chainsCount"></span></div>
                 <div class="float-sm-left"><strong>B-Factor</strong>: <span id="bfactorstat"></span></div>
-                <div class="float-sm-left"><strong>Macromolecules</strong>: <div class="overflow-auto"><ul id="macromoleculesList"></ul></div></div>
+                <div class="float-sm-left"><strong>Elements</strong>: <span id="proteinElements"></span></div>
+                <div class="float-sm-left"><strong>Macromolecules</strong>:<ul id="macromoleculesList"></ul></div>
             </div>
             </div>
             <!-- WebGL Canvas, where protein visualization will be viewed and interacted with -->
