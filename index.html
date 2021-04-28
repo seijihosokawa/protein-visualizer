@@ -72,7 +72,7 @@
                 <div class="container-fluid">
                     <!-- Button trigger modal -->
                     <span data-toggle="modal" data-target="#searchModal">    
-                        <button type="button" class="btn btn-outline-secondary" style="color:white" data-toggle="tooltip" data-placement="bottom" title="Search for a specific PDB code from our protein folder!">
+                        <button type="button" class="btn btn-outline-secondary" style="color:white" data-toggle="tooltip" data-placement="bottom" title="Search for a specific PDB code or upload your own!">
                             Search or Upload PDB
                         </button>
                     </span>
@@ -159,7 +159,7 @@
                   <!-- Search modal field -->
                   <div class="container-fluid justify-content-end" style="margin: 5px">
                       <form class="d-flex">
-                          <input class="form-control me-2" id="searchbar" type="text" placeholder="Search" aria-label="Search" onclick="loadModalList()" onkeyup="filterSearchFunction()">
+                          <input class="form-control me-2" id="searchbar" type="text" placeholder="Search" aria-label="Search" onclick="loadModalList()" onkeyup="filterSearchFunction()" data-toggle="tooltip" data-placement="bottom" title="Search through our list or use the PDB code and click select to visualize on screen!">
                       </form>
                       </div>
                   <div class="container-fluid justify-content-end">
