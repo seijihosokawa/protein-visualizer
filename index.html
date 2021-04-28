@@ -24,7 +24,7 @@
                 <!-- Navigation Bar select option (with dropdown) for style -->
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <select name="" id="style" class="form-select" style="width: 150px;" onchange="load_pdb()" data-toggle="tooltip" data-placement="bottom" title="View the 3D structure in different representations">
+                        <select name="" id="style" class="form-select" style="width: 150px;" onchange="loadPDB()" data-toggle="tooltip" data-placement="bottom" title="View the 3D structure in different representations">
                             <option value="None" selected disabled hidden>Protein Style</option>
                             <option value="cartoon">Cartoon</option>
                             <option value="backbone">Backbone</option>
@@ -44,7 +44,7 @@
                 <!-- Navigation Bar select option (with dropdown) for color scheme -->
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <select name="" id="colorid" class="form-select" style="width: 155px;" onchange="load_pdb()" data-toggle="tooltip" data-placement="bottom" title="View the 3D structure in different color scheme">
+                        <select name="" id="colorid" class="form-select" style="width: 155px;" onchange="loadPDB()" data-toggle="tooltip" data-placement="bottom" title="View the 3D structure in different color scheme">
                             <option value="None" selected disabled hidden>Color Scheme </option>
                             <option value="atomindex">Atomindex</option>
                             <option value="bfactor">Bfactor</option>
@@ -85,18 +85,18 @@
                       </button>
                       <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="dropdownMenuButton2">
                           <!-- Screenshot button -->
-                          <li><button type="button" class="dropdown-item" onClick="take_screenshot()" data-toggle="tooltip" data-placement="left" title="Take screenshot of current view!">Screenshot</button></li>
+                          <li><button type="button" class="dropdown-item" onClick="takeScreenshot()" data-toggle="tooltip" data-placement="left" title="Take screenshot of current view!">Screenshot</button></li>
                           <!-- Full screen button -->
-                          <li><button type="button" class="dropdown-item" onClick="set_fullscreen()" data-toggle="tooltip" data-placement="left" title="Click to view protein in full screen!">Full Screen</button></li>
+                          <li><button type="button" class="dropdown-item" onClick="setFullscreen()" data-toggle="tooltip" data-placement="left" title="Click to view protein in full screen!">Full Screen</button></li>
                           <!-- Toggle spin button -->
-                          <li><button type="button" class="dropdown-item" onClick="toggle_spin()" data-toggle="tooltip" data-placement="left" title="Click here to make protein spin!">Toggle Spin</button></li>
+                          <li><button type="button" class="dropdown-item" onClick="toggleSpin()" data-toggle="tooltip" data-placement="left" title="Click here to make protein spin!">Toggle Spin</button></li>
                           <!-- Toggle rock button -->
-                          <li><button type="button" class="dropdown-item" onClick="toggle_rock()" data-toggle="tooltip" data-placement="left" title="Click here to make protein rock!">Toggle Rock</button></li>
+                          <li><button type="button" class="dropdown-item" onClick="toggleRock()" data-toggle="tooltip" data-placement="left" title="Click here to make protein rock!">Toggle Rock</button></li>
                           <!-- Toggle info box button -->
-                          <li><button type="button" class="dropdown-item" onClick="toggle_info()" data-toggle="tooltip" data-placement="left" title="Click here to toggle protein info box!">Toggle Info</button></li>
+                          <li><button type="button" class="dropdown-item" onClick="toggleInfo()" data-toggle="tooltip" data-placement="left" title="Click here to toggle protein info box!">Toggle Info</button></li>
                           <!-- Popular proteins -->
                           <li><center>
-                              <select name="" id="popularProteins" class="form-select" style="width: 150px;" onchange="set_example_protein()" data-toggle="tooltip" data-placement="bottom" title="Select a popular protein as an example!">
+                              <select name="" id="popularProteins" class="form-select" style="width: 150px;" onchange="setExampleProtein()" data-toggle="tooltip" data-placement="bottom" title="Select a popular protein as an example!">
                                   <option value="None" selected disabled hidden>Examples</option>
                                   <option value="1A3N">Hemoglobin</option>
                                   <option value="4PKH">Actin</option>
@@ -117,7 +117,7 @@
     <body>
         <center>
             <!-- Draggable element with protein info -->
-            <div class="rounded bg-light border-dark" id="draggableDiv" style="position: absolute;z-index: 9;width: 300px;text-align: left;top: 56px;left: 2px">
+            <div class="rounded bg-light border-dark" id="draggableDiv" style="position: absolute;z-index: 9;width: 305px;text-align: left;top: 56px;left: 2px">
             <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
             <div class="container rounded text-dark" id="mydivheader" style="
                 cursor: move;
@@ -126,8 +126,10 @@
                 <div class="float-sm-left"><strong>Title</strong>: <span id="proteinTitle"></span></div>
                 <div class="float-sm-left"><strong>Atom Count</strong>: <span id="atomCount"></span></div>
                 <div class="float-sm-left"><strong>Bond Count</strong>: <span id="bondCount"></span></div>
+                <div class="float-sm-left"><strong>Residue Count</strong>: <span id="residueCount"></span></div>
+                <div class="float-sm-left"><strong>Unique Chains</strong>: <span id="chainsCount"></span></div>
                 <div class="float-sm-left"><strong>B-Factor</strong>: <span id="bfactorstat"></span></div>
-                <div class="float-sm-left"><strong>Macromolecules</strong>: <ul id="macromolecules_list"></div>
+                <div class="float-sm-left"><strong>Macromolecules</strong>: <ul id="macromoleculesList"></ul></div>
             </div>
             </div>
             <!-- WebGL Canvas, where protein visualization will be viewed and interacted with -->
@@ -140,7 +142,7 @@
                 <div class="modal-header">
                     <!-- Search modal button for input file-->
                     <div class="container-fluid justify-content-end" style="margin: 5px">
-                        <input class="form-control" type="file"  id="file-selector"accept=".pdb" onChange="update_current_protein()" data-toggle="tooltip" data-placement="bottom" title="Upload your own PDB file!">
+                        <input class="form-control" type="file"  id="file-selector"accept=".pdb" onChange="updateCurrentProtein()" data-toggle="tooltip" data-placement="bottom" title="Upload your own PDB file!">
                     </div>
                 </div>
               <div class="modal-body" style="max-height: 75vh;
@@ -148,7 +150,7 @@
                   <!-- Search modal field -->
                   <div class="container-fluid justify-content-end" style="margin: 5px">
                       <form class="d-flex">
-                          <input class="form-control me-2" id="searchbar" type="text" placeholder="Search" aria-label="Search" onclick="load_modal_list()" onkeyup="filter_search_function()">
+                          <input class="form-control me-2" id="searchbar" type="text" placeholder="Search" aria-label="Search" onclick="loadModalList()" onkeyup="filterSearchFunction()">
                       </form>
                       </div>
                   <div class="container-fluid justify-content-end">
@@ -158,8 +160,8 @@
               </div>
               <div class="modal-footer">
                   <!-- Search modal select and close buttons -->
-                <button class="btn btn-outline-success" type="button" onclick="search_select_clicked()" data-dismiss="modal">Select</button>
-                <button type="button" id="closeModalButton" class="btn btn-outline-danger" data-dismiss="modal" onclick="on_modal_close()">Close</button>
+                <button class="btn btn-outline-success" type="button" onclick="searchSelectClicked()" data-dismiss="modal">Select</button>
+                <button type="button" id="closeModalButton" class="btn btn-outline-danger" data-dismiss="modal" onclick="onModalClose()">Close</button>
               </div>
             </div>
           </div>
