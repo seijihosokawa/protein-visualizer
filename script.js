@@ -101,14 +101,14 @@ function toggleSpin(){
         document.getElementById("toggleSpin").innerHTML = "Untoggle Spin";
         return;
     }
-    document.getElementById("toggleSpin").innerHTML = "Toggle Spin"
+    document.getElementById("toggleSpin").innerHTML = "Toggle Spin";
 }
 
 //toggles canvas rock
 function toggleRock(){
     stage.toggleRock();
     
-    document.getElementById("toggleSpin").innerHTML = "Toggle Spin"
+    document.getElementById("toggleSpin").innerHTML = "Toggle Spin";
     toggleRockHTML = document.getElementById("toggleRock").innerHTML;
     if (toggleRockHTML == "Toggle Rock"){
         document.getElementById("toggleRock").innerHTML = "Untoggle Rock";
