@@ -94,22 +94,39 @@ function setFullscreen(){
 //toggles canvas spin
 function toggleSpin(){
     stage.toggleSpin();
+    
+    document.getElementById("toggleRock").innerHTML = "Toggle Rock";
+    toggleSpinHTML = document.getElementById("toggleSpin").innerHTML;
+    if (toggleSpinHTML == "Toggle Spin"){
+        document.getElementById("toggleSpin").innerHTML = "Untoggle Spin";
+        return;
+    }
+    document.getElementById("toggleSpin").innerHTML = "Toggle Spin"
 }
 
 //toggles canvas rock
 function toggleRock(){
     stage.toggleRock();
+    
+    document.getElementById("toggleSpin").innerHTML = "Toggle Spin"
+    toggleRockHTML = document.getElementById("toggleRock").innerHTML;
+    if (toggleRockHTML == "Toggle Rock"){
+        document.getElementById("toggleRock").innerHTML = "Untoggle Rock";
+        return;
+    }
+    document.getElementById("toggleRock").innerHTML = "Toggle Rock";
 }
 
 //toggles protein info moveable box
 function toggleInfo(){
     let x = document.getElementById("draggableDiv");
     if(x.style.display === "none"){
+        document.getElementById("toggleInfo").innerHTML = "Untoggle Info";
         x.style.display = "block";
+        return;
     }
-    else{
-        x.style.display = "none";
-    }
+    document.getElementById("toggleInfo").innerHTML = "Toggle Info";
+    x.style.display = "none";
 }
 
 //toggles protein info moveable box
@@ -336,9 +353,23 @@ function takeScreenshot(){
     });
 }
 
+//clear the stage
+function clearStage(){
+    stage.removeAllComponents();
+    document.getElementById("proteinNameInfo").innerHTML = "";
+    document.getElementById("proteinTitle").innerHTML = "";
+    document.getElementById("atomCount").innerHTML = "";
+    document.getElementById("bondCount").innerHTML = "";
+    document.getElementById("residueCount").innerHTML = "";
+    document.getElementById("chainsCount").innerHTML = "";
+    document.getElementById("bfactorstat").innerHTML = "";
+    document.getElementById("proteinElements").innerHTML = "";
+    document.getElementById("macromoleculesList").innerHTML = "";
+}
+
 //tasks:
 // examples of proteins with animations + highlighted parts of hemoglobin, covid19, etc (https://github.com/nglviewer/ngl/blob/v0.9.3/examples/js/examples.js)
-// textbox showing important information such as current loaded protein
+// styles selected
 // add tooltips ref: https://getbootstrap.com/docs/4.0/components/tooltips/
 // https://proteopedia.org/wiki/fgij/
 // https://www.umass.edu/molvis/workshop/osaka08s.htm

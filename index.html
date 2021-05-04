@@ -89,11 +89,12 @@
                           <!-- Full screen button -->
                           <li><button type="button" class="dropdown-item" onClick="setFullscreen()" data-toggle="tooltip" data-placement="left" title="Click to view protein in full screen!">Full Screen</button></li>
                           <!-- Toggle spin button -->
-                          <li><button type="button" class="dropdown-item" onClick="toggleSpin()" data-toggle="tooltip" data-placement="left" title="Click here to make protein spin!">Toggle Spin</button></li>
+                          <li><button type="button" id="toggleSpin" class="dropdown-item" onClick="toggleSpin()" data-toggle="tooltip" data-placement="left" title="Click here to make protein spin!">Toggle Spin</button></li>
                           <!-- Toggle rock button -->
-                          <li><button type="button" class="dropdown-item" onClick="toggleRock()" data-toggle="tooltip" data-placement="left" title="Click here to make protein rock!">Toggle Rock</button></li>
+                          <li><button type="button" id="toggleRock" class="dropdown-item" onClick="toggleRock()" data-toggle="tooltip" data-placement="left" title="Click here to make protein rock!">Toggle Rock</button></li>
                           <!-- Toggle info box button -->
-                          <li><button type="button" class="dropdown-item" onClick="toggleInfo()" data-toggle="tooltip" data-placement="left" title="Click here to toggle protein info box!">Toggle Info</button></li>
+                          <li><button type="button" id="toggleInfo" class="dropdown-item" onClick="toggleInfo()" data-toggle="tooltip" data-placement="left" title="Click here to toggle protein info box!">Untoggle Info</button></li>
+                          <li><button type="button" class="dropdown-item" onClick="clearStage()" data-toggle="tooltip" data-placement="left" title="Click here to clear the screen!">Clear Stage</button></li>
                           <!-- Example proteins -->
                           <li><center>
                               <select name="" id="exampleProteins" class="form-select" style="width: 150px;" onchange="setExampleProtein()" data-toggle="tooltip" data-placement="bottom" title="Select a protein from our curated list as an example!">
@@ -138,6 +139,7 @@
                 <div class="float-sm-left"><strong>Unique Chains</strong>: <span id="chainsCount"></span></div>
                 <div class="float-sm-left"><strong>B-Factor</strong>: <span id="bfactorstat"></span></div>
                 <div class="float-sm-left"><strong>Elements</strong>: <span id="proteinElements"></span></div>
+                <div class="float-sm-left"><strong>Style(s)</strong>: <span id="stlyeSelected"></span></div>
                 <div class="float-sm-left"><strong>Macromolecules</strong>:<ul id="macromoleculesList"></ul></div>
             </div>
             </div>
@@ -208,7 +210,7 @@
                                 <ul class="list-unstyled">
                                     <li>This protein visualizer is maintained and developed by Seiji and Yuuki Hosokawa. This project is full of features and allows for advanced visualization and manipulation of molecular structures.</li><br>
                                         <li>Our source code can be found in the footer containing a hyperlink to our GitHub repository.</li><br>
-                                        <li>You can fetch proteins from our list in "Search" or upload your own as a local file. The default representation is currently cartoon showing the main backbone atoms of successive residues in unbroken chains which are connected by a smooth trace. Various coloring algorithms can be applied to visualize a specific presentation.</li><br>
+                                        <li>You can fetch proteins from our list in "Search" or upload your own as a local file. The default representation is currently set to cartoon showing the main backbone atoms of successive residues in unbroken chains which are connected by a smooth trace. Various coloring algorithms can be applied to visualize a specific presentation.</li><br>
                                         <li>Developing this was great fun and we learned a lot, have a great day!</li>
                                 </ul>
                             </div>
