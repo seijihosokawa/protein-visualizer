@@ -4,13 +4,16 @@ const PROTEIN_LIST = ['1cvlH', '1qf9H', '1cxcH', '1qtsH', '1rzlH', '3pteH', '1b1
 var stage = new NGL.Stage("viewport");
 //set a default value for current protein
 var current_protein = "3pqr";
+// set a default value for the loaded orientation to restore
+var current_orientation = stage.viewerControls.getOrientation()
 
 // load a PDB structure and consume the returned `Promise`
 function loadPDB(){
     //checks whether or not the view should be reset
     var viewResetOrBuildUpon = document.getElementById("flexSwitchCheckDefault").checked;
     //console.log(view_reset_or_build_upon);
-    
+    //sets orientation again
+    current_orientation = stage.viewerControls.getOrientation()
     if(!viewResetOrBuildUpon){
         stage.removeAllComponents();
     }
@@ -89,6 +92,12 @@ function calcBfactorAvg(component){
 //sets the canvas to full screen
 function setFullscreen(){
     stage.toggleFullscreen();
+}
+
+//sets the view to orient the molecule
+function setOrientation(){
+    // var getOrientation = stage.viewerControls.getOrientation()
+    stage.viewerControls.align(current_orientation)
 }
 
 //toggles canvas spin
