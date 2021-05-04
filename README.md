@@ -4,6 +4,8 @@ of representations and color schemes to fit your needs.
 
 We aimed to make it as user friendly as possible so please read the instructions below and enjoy!
 
+![Screenshot](protein_visualizer.png)
+
 ## Description of each feature:
   * Viewing Stage: 
     * Click and drag using the mouse to move the protein around and use the scroll wheel to zoom in and out
@@ -46,8 +48,6 @@ We aimed to make it as user friendly as possible so please read the instructions
     * The info box as a plethoral of information at your disposal and will update once you have selected a new protein
   * Question/Help button in bottom right:
     * Please click here if you need additional help or would like to submit questions/issues
-
-![Screenshot](protein_visualizer.png)
 
 
 References:
