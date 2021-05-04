@@ -72,8 +72,8 @@
                 <div class="container-fluid">
                     <!-- Button trigger modal -->
                     <span data-toggle="modal" data-target="#searchModal">    
-                        <button type="button" class="btn btn-outline-secondary" style="color:white" data-toggle="tooltip" data-placement="bottom" title="Search for a specific PDB code or upload your own!">
-                            Search or Upload PDB
+                        <button type="button" class="btn btn-outline-secondary" style="color:white" data-toggle="tooltip" data-placement="bottom" title="Search for a specific PDB code or upload your own file!">
+                            Search or Upload Protein
                         </button>
                     </span>
                 </div>
@@ -88,6 +88,8 @@
                           <li><a type="button" class="dropdown-item" onClick="takeScreenshot()" data-toggle="tooltip" data-placement="left" title="Take screenshot of current view!">Screenshot</a></li>
                           <!-- Full screen button -->
                           <li><a type="button" class="dropdown-item" onClick="setFullscreen()" data-toggle="tooltip" data-placement="left" title="Click to view protein in full screen!">Full Screen</a></li>
+                          <!-- Orient button -->
+                          <li><a type="button" id="setOrientation" class="dropdown-item" onClick="setOrientation()" data-toggle="tooltip" data-placement="left" title="Click here to orient the protein!">Center Protein</a></li>
                           <!-- Toggle spin button -->
                           <li><a type="button" id="toggleSpin" class="dropdown-item" onClick="toggleSpin()" data-toggle="tooltip" data-placement="left" title="Click here to make protein spin!">Toggle Spin</a></li>
                           <!-- Toggle rock button -->
@@ -158,7 +160,7 @@
                 <div class="modal-header">
                     <!-- Search modal button for input file-->
                     <div class="container-fluid justify-content-end" style="margin: 5px">
-                        <input class="form-control" type="file"  id="file-selector"accept=".pdb, .mmcif, .cif, .mcif, .ent, .pqr, .gro, .sdf, .sd, .mol2, .mmtf" onChange="updateCurrentProtein()" data-toggle="tooltip" data-placement="bottom" title="Upload your own PDB file!">
+                        <input class="form-control" type="file"  id="file-selector"accept=".pdb, .mmcif, .cif, .mcif, .ent, .pqr, .gro, .sdf, .sd, .mol2, .mmtf" onChange="updateCurrentProtein()" data-toggle="tooltip" data-placement="bottom" title="Upload your own file!">
                     </div>
                 </div>
               <div class="modal-body" style="max-height: 75vh;
