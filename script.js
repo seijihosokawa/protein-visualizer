@@ -374,7 +374,4 @@ function clearStage(){
 // https://proteopedia.org/wiki/fgij/
 // https://www.umass.edu/molvis/workshop/osaka08s.htm
 
-//references:
-//https://www.rcsb.org/
-//http://nglviewer.org/ngl/api/class/src/stage/stage.js~Stage.html
-//https://www.w3schools.com/howto/howto_js_draggable.asp
+
