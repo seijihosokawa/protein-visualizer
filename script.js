@@ -337,6 +337,8 @@ function takeScreenshot(){
 }
 
 //tasks:
+// button to center (orient) the molecule
+// create a detailed text box explaining function, location and role for examples 
 // examples of proteins with animations + highlighted parts of hemoglobin, covid19, etc (https://github.com/nglviewer/ngl/blob/v0.9.3/examples/js/examples.js)
 // textbox showing important information such as current loaded protein
 // add tooltips ref: https://getbootstrap.com/docs/4.0/components/tooltips/
