@@ -1,0 +1,32 @@
+
+a.dropdown-item{
+    position: relative;
+}
+
+a.dropdown-item:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #FFF;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+a.dropdown-item:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+div.rounded.bg-light.border-dark.overflow-auto{
+    position: absolute;
+    z-index: 9;
+    width: 305px;
+    text-align: left;
+    top: 56px;
+    left: 2px;
+    max-height: 89vh
+}
