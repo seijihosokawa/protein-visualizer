@@ -4,18 +4,20 @@ const PROTEIN_LIST = ['1cvlH', '1qf9H', '1cxcH', '1qtsH', '1rzlH', '3pteH', '1b1
 var stage = new NGL.Stage("viewport");
 //set a default value for current protein
 var current_protein = "3pqr";
-// set a default value for the loaded orientation to restore
-var current_orientation = stage.viewerControls.getOrientation()
-
+// declare orientation
+var current_orientation;
+//declare set of styles
+var styles_sets = new Set();
 // load a PDB structure and consume the returned `Promise`
 function loadPDB(){
     //checks whether or not the view should be reset
     var viewResetOrBuildUpon = document.getElementById("flexSwitchCheckDefault").checked;
     //console.log(view_reset_or_build_upon);
-    //sets orientation again
-    current_orientation = stage.viewerControls.getOrientation()
+    //sets orientation
+    current_orientation = stage.viewerControls.getOrientation();
     if(!viewResetOrBuildUpon){
         stage.removeAllComponents();
+        styles_sets.clear();
     }
     console.log("Current Protein:", current_protein);
     stage.loadFile("rcsb://protein_files/"+current_protein).then(function (component) {
@@ -28,8 +30,6 @@ function loadPDB(){
         console.log("Style: ", styleValue,
                     "Color: ", colorValue
                     );
-        //loads info box
-        loadDraggableInfo(component);
         //catching error of searching protein before setting style
         try{
             //calling function to add components to stage
@@ -39,8 +39,9 @@ function loadPDB(){
             //setting any type errors to default to backbone view and atonmindex colorscheme
             component.addRepresentation("cartoon", {colorScheme: "bfactor"});
         }
-         // provide a "good" view of the structure
-         component.autoView();
+        //loads info box
+        loadDraggableInfo(component);
+        component.autoView();
     });
 }
 
@@ -51,6 +52,7 @@ function addComponentsToStage(component, styleValue, colorValue){
     if(styleValue == "None")styleValue = "cartoon";
     if(colorValue == "None")colorValue = "bfactor";
     
+    styles_sets.add(styleValue);
     //adding representation
     component.addRepresentation(styleValue, {colorScheme: colorValue});
     //adding labels
@@ -281,7 +283,7 @@ function dragElement(elmnt) {
 
 //load the data into the draggable info box
 function loadDraggableInfo(component){
-    console.log("Residue Map:",component.structure.residueMap.dict);
+    //console.log("Residue Map:",component.structure.residueMap.dict);
     //https://nglviewer.org/ngl/api/class/src/structure/structure.js~Structure.html
     
     //get info box data
@@ -307,6 +309,8 @@ function loadDraggableInfo(component){
     document.getElementById("chainsCount").innerHTML = chainsCount;
     document.getElementById("bfactorstat").innerHTML = bfactorAvg;
     document.getElementById("proteinElements").innerHTML = proteinElements;
+    document.getElementById("stlyeSelected").innerHTML = [...styles_sets].join(', ');
+
 }
 
 //return unqiue elements atoms made of
@@ -374,13 +378,12 @@ function clearStage(){
     document.getElementById("bfactorstat").innerHTML = "";
     document.getElementById("proteinElements").innerHTML = "";
     document.getElementById("macromoleculesList").innerHTML = "";
+    document.getElementById("stlyeSelected").innerHTML = "";
 }
 
 //tasks:
-// button to center (orient) the molecule
 // create a detailed text box explaining function, location and role for examples 
 // examples of proteins with animations + highlighted parts of hemoglobin, covid19, etc (https://github.com/nglviewer/ngl/blob/v0.9.3/examples/js/examples.js)
-// styles selected
 // add tooltips ref: https://getbootstrap.com/docs/4.0/components/tooltips/
 // https://proteopedia.org/wiki/fgij/
 // https://www.umass.edu/molvis/workshop/osaka08s.htm
