@@ -4,6 +4,8 @@ of representations and color schemes to fit your needs.
 
 We aimed to make it as user friendly as possible so please read the instructions below and enjoy!
 
+[Click here to use the tool](https://seijihosokawa.github.io/proteinVisualizer/)
+
 ![Screenshot](protein_visualizer.png)
 
 ## Description of each feature:
